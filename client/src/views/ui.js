@@ -11,12 +11,16 @@ var UI = function () {
 UI.prototype = {
   render: function(mythInfo){
     var infoDiv = document.querySelector("#info");
+    infoDiv.innerHTML = null; 
     var mythParagraph = document.createElement("p");
     mythParagraph.innerText = mythInfo;
 
     infoDiv.appendChild(mythParagraph);
-    this.createButton();
-      },
+
+    if (this.counter !== this.logic.characters.length){
+      this.createButton();
+    }
+  },
 
   createButton: function(){
     var button = document.createElement("button");
@@ -31,8 +35,7 @@ UI.prototype = {
   nextCharacter: function(){
     this.mythFacts.getWiki(this.logic.characters[this.counter].name, this.render.bind(this));
     this.counter ++;
-
   }
-  }
+}
 
 module.exports = UI;
