@@ -1,7 +1,7 @@
-var Character = require('character');
+var Character = require('./character');
 
 var Logic = function() {
-
+  this.generateCharacter();
 }
 
 Logic.prototype = {
@@ -13,3 +13,5 @@ Logic.prototype = {
     this.characters.push(new Character("Jason"));
   }
 }
+
+module.exports = Logic;

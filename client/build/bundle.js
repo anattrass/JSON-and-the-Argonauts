@@ -57,11 +57,14 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var Logic = __webpack_require__(3);
 	var MythFacts = __webpack_require__(2);
 	
 	var UI = function () {
+	  var counter = 0;
+	  this.logic = new Logic();
 	  this.mythFacts = new MythFacts();
-	  this.mythFacts.getWiki("zeus", this.render.bind(this));
+	  this.mythFacts.getWiki(this.logic.characters[0].name, this.render.bind(this));
 	}
 	
 	UI.prototype = {
@@ -110,6 +113,42 @@
 	
 	module.exports = MythFacts;
 
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Character = __webpack_require__(4);
+	
+	var Logic = function() {
+	  this.generateCharacter();
+	}
+	
+	Logic.prototype = {
+	  generateCharacter: function(){
+	    this.characters = [];
+	    this.characters.push(new Character("Heracles"));
+	    this.characters.push(new Character("Apollo"));
+	    this.characters.push(new Character("Athena"));
+	    this.characters.push(new Character("Jason"));
+	  }
+	}
+	
+	module.exports = Logic;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	var Character = function(name){
+	  this.name = name;
+	}
+	
+	Character.prototype = {
+	
+	}
+	
+	module.exports = Character;
 
 /***/ }
 /******/ ]);

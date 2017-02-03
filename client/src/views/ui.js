@@ -1,8 +1,11 @@
+var Logic = require('../models/logic');
 var MythFacts = require('../models/mythFacts');
 
 var UI = function () {
+  var counter = 0;
+  this.logic = new Logic();
   this.mythFacts = new MythFacts();
-  this.mythFacts.getWiki("zeus", this.render.bind(this));
+  this.mythFacts.getWiki(this.logic.characters[0].name, this.render.bind(this));
 }
 
 UI.prototype = {
