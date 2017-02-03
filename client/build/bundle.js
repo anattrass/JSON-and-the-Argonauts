@@ -100,12 +100,11 @@
 	        } else {
 	          var response = JSON.parse(this.responseText);
 	          var pages = response.query.pages;
+	          console.log(response.query.pages);
 	                  pagesArray = [];
 	                  for(key in pages) {pagesArray.push(pages[key])};
-	                  //   console.log(pagesArray);
-	                  // console.log(pagesArray[0].extract)
-	          // console.log(response.query.pages);
-	          callback(pagesArray[0].extract);
+	           console.log(pagesArray);
+	          callback(pagesArray[0].title);
 	        }
 	      });
 	}
