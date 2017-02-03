@@ -12,7 +12,7 @@ MythFacts.prototype = {
 
   getWiki: function(mythQuery, callback){
       var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + mythQuery + "&origin=*";
-      makeRequest(url, function(){
+      this.makeRequest(url, function(){
         if (this.status !== 200){
           return;
         } else {

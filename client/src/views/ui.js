@@ -2,7 +2,7 @@ var MythFacts = require('../models/mythFacts');
 
 var UI = function () {
   this.mythFacts = new MythFacts();
-  this.mythFacts.getWiki("zeus", this.render).bind(this);
+  this.mythFacts.getWiki("zeus", this.render.bind(this));
 }
 
 UI.prototype = {
@@ -14,4 +14,5 @@ UI.prototype = {
     infoDiv.appendChild(mythParagraph);
       }
   }
-}
+
+module.exports = UI;
