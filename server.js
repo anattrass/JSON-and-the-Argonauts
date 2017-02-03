@@ -14,5 +14,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log('Your odyssey begins on port 3000 '+this.address().port);
+  console.log('Your odyssey begins on port '+this.address().port);
 });
