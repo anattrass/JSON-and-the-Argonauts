@@ -17,8 +17,13 @@ MythFacts.prototype = {
           return;
         } else {
           var response = JSON.parse(this.responseText);
-          console.log(response);
-          callback(response);
+          var pages = response.query.pages;
+                  pagesArray = [];
+                  for(key in pages) {pagesArray.push(pages[key])};
+                  //   console.log(pagesArray);
+                  // console.log(pagesArray[0].extract)
+          // console.log(response.query.pages);
+          callback(pagesArray[0].extract);
         }
       });
 }
