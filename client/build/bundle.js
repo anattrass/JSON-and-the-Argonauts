@@ -61,10 +61,10 @@
 	var MythFacts = __webpack_require__(2);
 	
 	var UI = function () {
-	  var counter = 0;
+	  this.counter = 0;
 	  this.logic = new Logic();
 	  this.mythFacts = new MythFacts();
-	  this.mythFacts.getWiki(this.logic.characters[0].name, this.render.bind(this));
+	  this.nextCharacter();
 	}
 	
 	UI.prototype = {
@@ -74,7 +74,24 @@
 	    mythParagraph.innerText = mythInfo;
 	
 	    infoDiv.appendChild(mythParagraph);
-	      }
+	    this.createButton();
+	      },
+	
+	  createButton: function(){
+	    var button = document.createElement("button");
+	    button.innerText = "presss meee";
+	    var info = document.querySelector("#info")
+	    info.appendChild(button);
+	    button.onclick = this.nextCharacter.bind(this);
+	    console.log(this);
+	
+	  },
+	
+	  nextCharacter: function(){
+	    this.mythFacts.getWiki(this.logic.characters[this.counter].name, this.render.bind(this));
+	    this.counter ++;
+	
+	  }
 	  }
 	
 	module.exports = UI;
