@@ -36,11 +36,11 @@
     answer: False
   },
   {
-    question: "Toe retrieve the Golden Fleece, Jason was required to complete three tasks. One of these was to plough a field with fire-breathing oxen.",
+    question: "To retrieve the Golden Fleece, Jason was required to complete three tasks. One of these was to plough a field with fire-breathing oxen.",
     answer: True
   },
   {
-    question: "Another task was to defeat the Cyclope.",
+    question: "Another task was to defeat the Cyclopes.",
     answer: False
   },
   {
@@ -57,7 +57,7 @@
     answer: True
   },
   {
-    question: " Athena wield the aegis and thunderbolt for zeus.",
+    question: " Athena wields the aegis and thunderbolt for zeus.",
     answer: True
   },
   {
@@ -145,7 +145,57 @@
     answer: False
   },
   {
-    question: "Hearcles died from poison.",
+    question: "Heracles died from poison.",
     answer: True
-  }]
+  }],
+
+  Apollo: [{
+    question: "Zeus and Hera were the parents of Apollo",
+    answer: False
+  },
+  {
+    question: "Apollo was the patron of Delphi",
+    answer: True
+  },
+  {
+    question: "Asclepius is the son of Apollo",
+    answer: True
+  },
+  {
+    question: "Artemis is the twin sister of Apollo",
+    answer: True
+  },
+  {
+    question: "The lyre Apollo carries was created and given to him by Hermes",
+    answer: True
+  },
+  {
+    question: "Apollo was born in Mount Olympus",
+    answer: False
+  },
+  {
+    question: "Python was defeated by Apollo",
+    answer: True
+  },
+  {
+    question: "Apollo aided Paris in killing Achilles by guiding the arrow of his bow to Achilles heel",
+    answer: True
+  },
+  {
+    question: "Apollo had three sons to Cyrene",
+    answer: False
+  },
+  {
+    question:"Apollo won the musical challenge of Pan",
+    answer: True
+  },
+  {
+    question: "Hera sent the Chimera to hunt Apollo",
+    answer: False
+  },
+  {
+    question: "Apollo was leader of the Muses",
+    answer: True
+  }
+  ]
 }
