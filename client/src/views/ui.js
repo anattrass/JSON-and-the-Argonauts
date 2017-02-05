@@ -58,7 +58,8 @@ UI.prototype = {
     
     button.onclick = function(){
       this.infoDiv.innerHTML = null;
-      this.viewLogic.scrollMaster(400, this.nextCharacter.bind(this));
+      var currentScrollPos = document.querySelector("#view").scrollLeft;
+      this.viewLogic.scrollMaster(currentScrollPos + 400, this.nextCharacter.bind(this));
     }.bind(this);
   },
 
