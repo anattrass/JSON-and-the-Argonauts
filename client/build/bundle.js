@@ -127,10 +127,11 @@ UI.prototype = {
     button.innerText = "presss meee";
     // var info = document.querySelector("#info")
     buttonDiv.appendChild(button);
+    
     button.onclick = function(){
       this.infoDiv.innerHTML = null;
-    this.viewLogic.scrollMaster(400, this.nextCharacter.bind(this));
-  }.bind(this);
+      this.viewLogic.scrollMaster(400, this.nextCharacter.bind(this));
+    }.bind(this);
   },
 
   nextCharacter: function(){
