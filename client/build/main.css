@@ -85,8 +85,10 @@ body {
 
 .fact-box {
 	margin-top: -180px;
-	width: 150px;
-	height: 100px;
+	width: 500px;
+	height: 200px;
+	overflow: scroll;
+	/*height: 100px;*/
 	background-color: white;
 	margin-left: 300px;
 	position: absolute;
