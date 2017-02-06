@@ -58,71 +58,20 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Logic = __webpack_require__(2);
-	var MythFacts = __webpack_require__(4);
+	var MythFacts = __webpack_require__(3);
 	
 	var UI = function (){
 	  this.counter = 0;
 	  this.logic = new Logic();
 	  this.mythFacts = new MythFacts();
-	  // this.nextCharacter();
 	  this.view = document.querySelector('#view');
 	  this.content = document.querySelector("#content");
-	  // this.button = document.createElement('button');
 	  this.body = document.querySelector('body');
 	  this.infoDiv = document.createElement("div");
-	  // this.inputButton = document.createElement("input");
-	  // this.inputButton.value = 700;
-	  // this.body.appendChild(this.inputButton);
-	  // this.body.appendChild(this.button);
-	  // this.button.innerText = "test movement";
-	  // this.button.onclick = 
-	  // this.createButton();
 	  this.logic.quizCreator("Apollo");
 	}
 	
-	UI.prototype = {
-	  // exampleInfo: function(){
-	  //   var divvy = document.createElement('div');
-	  //   divvy.innerHTML = "<p>I am some fascinating facts</p>";
-	  //   var container = document.querySelector("#container");
-	  //   container.appendChild(divvy);
-	  //   divvy.className = "fact-box";
-	  // },
-	
-	  // render: function(mythInfo){
-	  //   // var container = document.querySelector("#container");
-	  //   // this.infoDiv = document.createElement("div");
-	  //   // this.infoDiv.innerHTML = null; 
-	  //   // var mythParagraph = document.createElement("p");
-	  //   // mythParagraph.innerText = mythInfo;
-	  //   // this.infoDiv.className = "fact-box";
-	  //   // this.infoDiv.appendChild(mythParagraph);
-	  //   // container.appendChild(this.infoDiv);
-	  //   // var buttonDiv = document.querySelector('#button-div')
-	  //   // buttonDiv.innerHTML = null;
-	  //   // if (this.counter !== this.logic.characters.length){
-	  //   //   this.createButton();
-	  //   // }
-	  // },
-	
-	  createButton: function(){
-	    var buttonDiv = document.querySelector('#button-div')
-	    buttonDiv.innerHTML = null;
-	    var button = document.createElement("button");
-	    button.innerText = "presss meee";
-	    // var info = document.querySelector("#info")
-	    buttonDiv.appendChild(button);
-	    
-	    button.onclick = function(){
-	      this.infoDiv.visibility = "hidden";
-	      var currentScrollPos = document.querySelector("#view").scrollLeft;
-	      this.viewLogic.scrollMaster(currentScrollPos + 400, this.nextCharacter.bind(this));
-	    }.bind(this);
-	  },
-	
-	// nextCharacter: function(){
-	//   this.logic.quizCreator("Athena");
-	// }
+	UI.prototype = {  
 	// When next character called it calls function getWiki in mythFacts and passes it character name and the render function from this module while binding this module.
 	//   nextCharacter: function(){
 	//     this.mythFacts.getWiki(this.logic.characters[this.counter].name, this.render.bind(this));
@@ -136,9 +85,9 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Character = __webpack_require__(5);
-	var CharacterInfo = __webpack_require__(6);
-	var ViewLogic = __webpack_require__(3);
+	var Character = __webpack_require__(4);
+	var CharacterInfo = __webpack_require__(5);
+	var ViewLogic = __webpack_require__(6);
 	
 	var Logic = function() {
 	  this.character = null;
@@ -148,6 +97,7 @@
 	  this.questionCounter = 0;
 	  this.characterName = null;
 	  this.view = document.querySelector('#view');
+	  this.container = document.querySelector('#container');
 	}
 	
 	Logic.prototype = {
@@ -182,10 +132,10 @@
 	
 	
 	quizCreator: function(characterName){
-	  console.log(characterName);
+	  // console.log(characterName);
 	  this.characterName = characterName;
 	  this.character = this.characterInfo.retrieveCharacter(characterName);
-	  console.log(this.character);
+	  // console.log(this.character);
 	  var quizDiv = document.createElement("div");
 	  var container = document.querySelector("#container");
 	  quizDiv.innerHTML = null;
@@ -193,6 +143,8 @@
 	  container.appendChild(quizDiv);
 	
 	  var quizContent = document.createElement("div");
+	  // console.log(this.character);
+	  // console.log(this.characterName);
 	  quizContent.innerText = this.character.questions[this.questionCounter].question;
 	  quizDiv.appendChild(quizContent);
 	
@@ -214,103 +166,71 @@
 	  // quizButton has the on click function that first gets the answer for the question then checks if it is equal to the false/true button clicked. It then calls to check the game state and evaluates if the player has won and will quit its function. If the player hasn't won it will call the scroll function,increase the question counter and create the next quiz question. If the player got the answer wrong it will call the failQuizDiv function.
 	
 	  quizButtonOnClick : function(choice){
+	    // console.log(this.questionCounter);
+	    // console.log(this.character.questions[this.questionCounter]);
 	    var answer = this.character.questions[this.questionCounter].answer;
+	
 	
 	    if ( answer === choice){
 	      console.log("your right!");
-	     // if (checkGameState() === true){
-	      // return;} else {
-	     // call moveCharacter function
-	     this.questionCounter ++;
-	     var quizDiv = document.querySelector(".fact-box");
-	     quizDiv.innerHTML = null;
-	     this.viewLogic.move(this.view.scrollLeft+100, function(){
-	      this.quizCreator(this.characterName)
-	    }.bind(this));
-	    // this.quizCreator(this.characterName);
-	  } else {
-	    console.log("you failed ya numpty");
-	// return failed quest div
-	  }
-	}
+	      this.questionCounter ++;
+	      this.checkGameState();
+	    } else {
+	      console.log("you failed ya numpty");
+	    }
+	  },
 	
-	// checkGameState is the function used to check if the player has won by evaluating if the questionCounter reached the last question by comparing the length to the characters amount of questions
+	  // checkGameState is the function used to check if the player has won by evaluating if the questionCounter reached the last question by comparing the length to the characters amount of questions
 	
-	// var checkGameState = function(){
-	//   if (questionCounter === quiz.character.questions.length){
-	//     div = document.querySelector("#index");
-	//     div.innerHTML = null;
-	//     winDiv;
-	//     // update leaderboard database with character passed for player
-	//     return true
-	//   } else {
-	//     return false;
-	//   }
-	// }
+	  checkGameState : function(){
+	    // console.log(this.questionCounter);
+	    // console.log(this.character.questions.length);
+	    if (this.questionCounter === this.character.questions.length){
+	      console.log("hits first part of if statement")
+	      this.winDiv();
+	    } else {
+	      console.log("hit continue function");
+	      this.continue();
+	    }
+	  },
+	
+	  continue : function () {
+	      var quizDiv = document.querySelector(".fact-box");
+	      quizDiv.parentNode.removeChild(quizDiv);
+	      this.viewLogic.move(this.view.scrollLeft+100, function(){
+	        this.quizCreator(this.characterName)
+	      }.bind(this));
+	  },
 	
 	// winDiv creates the win box returning a gracious message and a button that returns to the character select screen to begin the quiz again
 	
-	// var winDiv = function(){
-	//   div = document.createElement("div");
-	//   button = document.createElement("button");
-	//   div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
-	//   var returnToHome = function(){
-	//     characterSelectCreator(quizData);
-	//   }
-	//   button.onclick = returnToHome;
-	//   div.appendChild(button);
-	// }
+	winDiv : function(){
+	  var quizDiv = document.querySelector(".fact-box");
+	  quizDiv.parentNode.removeChild(quizDiv);
+	  var div = document.createElement("div");
+	  div.className = "fact-box";
+	  var button = document.createElement("button");
+	  div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
+	  button.innerText = "Start new game!";
+	  var returnToHome = function(){
+	    this.questionCounter = 0;
+	    // this.character = null;
+	    // this.characterName = "Athena";
+	    this.view = document.querySelector('#view');
+	    this.view.scrollLeft = 0;
+	    this.quizCreator("Athena");
+	  }
+	  button.onclick = returnToHome.bind(this);
+	  div.appendChild(button);
+	  this.container.appendChild(div);
+	}
+	
 	}
 	
 	module.exports = Logic;
 
 /***/ },
 /* 3 */
-/***/ function(module, exports) {
-
-	var ViewLogic = function(){
-		
-	}
-	
-	ViewLogic.prototype = {
-		move: function(destination, event){
-		    var scroller = function(destination){
-	
-		      var view = document.querySelector('#view'); 
-		      console.log(view.scrollLeft);
-	
-		      if (view.scrollLeft <= destination){
-		        var y = view.scrollLeft;
-		        view.scrollLeft = y+5;
-	
-		        if(view.scrollLeft >= destination){
-		          event();
-		          clearInterval(smoothScroll);
-		        } 
-		      } else if (view.scrollLeft >= destination){
-		        var y = view.scrollLeft;
-		        view.scrollLeft = y-5;
-	
-		        if(view.scrollLeft <= destination){
-		          event();
-		          clearInterval(smoothScroll);
-		        }
-		      }
-		    }
-	
-		    var smoothScroll = setInterval(function(){scroller(destination)}, 20);
-		    console.log(view.scrollLeft);
-		  },
-		  scrollMaster: function(destination, event){
-		    this.move(destination, event);
-		    console.log("back");
-		  }
-	}
-	
-	module.exports = ViewLogic;
-
-/***/ },
-/* 4 */
 /***/ function(module, exports) {
 
 	var MythFacts = function(){
@@ -345,7 +265,7 @@
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports) {
 
 	var Character = function(name){
@@ -359,7 +279,7 @@
 	module.exports = Character;
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports) {
 
 	var CharacterInfo = function(){ 
@@ -528,46 +448,46 @@
 	        question: "Zeus and Hera were the parents of Apollo",
 	        answer: false
 	      },
-	      {
-	        question: "Apollo was the patron of Delphi",
-	        answer: true
-	      },
-	      {
-	        question: "Asclepius is the son of Apollo",
-	        answer: true
-	      },
-	      {
-	        question: "Artemis is the twin sister of Apollo",
-	        answer: true
-	      },
-	      {
-	        question: "The lyre Apollo carries was created and given to him by Hermes",
-	        answer: true
-	      },
-	      {
-	        question: "Apollo was born in Mount Olympus",
-	        answer: false
-	      },
-	      {
-	        question: "Python was defeated by Apollo",
-	        answer: true
-	      },
-	      {
-	        question: "Apollo aided Paris in killing Achilles by guiding the arrow of his bow to Achilles heel",
-	        answer: true
-	      },
-	      {
-	        question: "Apollo had three sons to Cyrene",
-	        answer: false
-	      },
-	      {
-	        question:"Apollo won the musical challenge of Pan",
-	        answer: true
-	      },
-	      {
-	        question: "Hera sent the Chimera to hunt Apollo",
-	        answer: false
-	      },
+	      // {
+	      //   question: "Apollo was the patron of Delphi",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Asclepius is the son of Apollo",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Artemis is the twin sister of Apollo",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "The lyre Apollo carries was created and given to him by Hermes",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Apollo was born in Mount Olympus",
+	      //   answer: false
+	      // },
+	      // {
+	      //   question: "Python was defeated by Apollo",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Apollo aided Paris in killing Achilles by guiding the arrow of his bow to Achilles heel",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Apollo had three sons to Cyrene",
+	      //   answer: false
+	      // },
+	      // {
+	      //   question:"Apollo won the musical challenge of Pan",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Hera sent the Chimera to hunt Apollo",
+	      //   answer: false
+	      // },
 	      {
 	        question: "Apollo was leader of the Muses",
 	        answer: true
@@ -589,6 +509,51 @@
 	  }
 	
 	  module.exports = CharacterInfo;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	var ViewLogic = function(){
+		
+	}
+	
+	ViewLogic.prototype = {
+		move: function(destination, event){
+		    var scroller = function(destination){
+	
+		      var view = document.querySelector('#view'); 
+		      console.log(view.scrollLeft);
+	
+		      if (view.scrollLeft <= destination){
+		        var y = view.scrollLeft;
+		        view.scrollLeft = y+5;
+	
+		        if(view.scrollLeft >= destination){
+		          event();
+		          clearInterval(smoothScroll);
+		        } 
+		      } else if (view.scrollLeft >= destination){
+		        var y = view.scrollLeft;
+		        view.scrollLeft = y-5;
+	
+		        if(view.scrollLeft <= destination){
+		          event();
+		          clearInterval(smoothScroll);
+		        }
+		      }
+		    }
+	
+		    var smoothScroll = setInterval(function(){scroller(destination)}, 20);
+		    console.log(view.scrollLeft);
+		  },
+		  scrollMaster: function(destination, event){
+		    this.move(destination, event);
+		    console.log("back");
+		  }
+	}
+	
+	module.exports = ViewLogic;
 
 /***/ }
 /******/ ]);

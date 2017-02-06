@@ -10,6 +10,7 @@ var Logic = function() {
   this.questionCounter = 0;
   this.characterName = null;
   this.view = document.querySelector('#view');
+  this.container = document.querySelector('#container');
 }
 
 Logic.prototype = {
@@ -44,10 +45,10 @@ Logic.prototype = {
 
 
 quizCreator: function(characterName){
-  console.log(characterName);
+  // console.log(characterName);
   this.characterName = characterName;
   this.character = this.characterInfo.retrieveCharacter(characterName);
-  console.log(this.character);
+  // console.log(this.character);
   var quizDiv = document.createElement("div");
   var container = document.querySelector("#container");
   quizDiv.innerHTML = null;
@@ -55,6 +56,8 @@ quizCreator: function(characterName){
   container.appendChild(quizDiv);
 
   var quizContent = document.createElement("div");
+  // console.log(this.character);
+  // console.log(this.characterName);
   quizContent.innerText = this.character.questions[this.questionCounter].question;
   quizDiv.appendChild(quizContent);
 
@@ -76,52 +79,65 @@ quizCreator: function(characterName){
   // quizButton has the on click function that first gets the answer for the question then checks if it is equal to the false/true button clicked. It then calls to check the game state and evaluates if the player has won and will quit its function. If the player hasn't won it will call the scroll function,increase the question counter and create the next quiz question. If the player got the answer wrong it will call the failQuizDiv function.
 
   quizButtonOnClick : function(choice){
+    // console.log(this.questionCounter);
+    // console.log(this.character.questions[this.questionCounter]);
     var answer = this.character.questions[this.questionCounter].answer;
+
 
     if ( answer === choice){
       console.log("your right!");
-     // if (checkGameState() === true){
-      // return;} else {
-     // call moveCharacter function
-     this.questionCounter ++;
-     var quizDiv = document.querySelector(".fact-box");
-     quizDiv.innerHTML = null;
-     this.viewLogic.move(this.view.scrollLeft+100, function(){
-      this.quizCreator(this.characterName)
-    }.bind(this));
-    // this.quizCreator(this.characterName);
-  } else {
-    console.log("you failed ya numpty");
-// return failed quest div
-  }
-}
+      this.questionCounter ++;
+      this.checkGameState();
+    } else {
+      console.log("you failed ya numpty");
+    }
+  },
 
-// checkGameState is the function used to check if the player has won by evaluating if the questionCounter reached the last question by comparing the length to the characters amount of questions
+  // checkGameState is the function used to check if the player has won by evaluating if the questionCounter reached the last question by comparing the length to the characters amount of questions
 
-// var checkGameState = function(){
-//   if (questionCounter === quiz.character.questions.length){
-//     div = document.querySelector("#index");
-//     div.innerHTML = null;
-//     winDiv;
-//     // update leaderboard database with character passed for player
-//     return true
-//   } else {
-//     return false;
-//   }
-// }
+  checkGameState : function(){
+    // console.log(this.questionCounter);
+    // console.log(this.character.questions.length);
+    if (this.questionCounter === this.character.questions.length){
+      console.log("hits first part of if statement")
+      this.winDiv();
+    } else {
+      console.log("hit continue function");
+      this.continue();
+    }
+  },
+
+  continue : function () {
+      var quizDiv = document.querySelector(".fact-box");
+      quizDiv.parentNode.removeChild(quizDiv);
+      this.viewLogic.move(this.view.scrollLeft+100, function(){
+        this.quizCreator(this.characterName)
+      }.bind(this));
+  },
 
 // winDiv creates the win box returning a gracious message and a button that returns to the character select screen to begin the quiz again
 
-// var winDiv = function(){
-//   div = document.createElement("div");
-//   button = document.createElement("button");
-//   div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
-//   var returnToHome = function(){
-//     characterSelectCreator(quizData);
-//   }
-//   button.onclick = returnToHome;
-//   div.appendChild(button);
-// }
+winDiv : function(){
+  var quizDiv = document.querySelector(".fact-box");
+  quizDiv.parentNode.removeChild(quizDiv);
+  var div = document.createElement("div");
+  div.className = "fact-box";
+  var button = document.createElement("button");
+  div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
+  button.innerText = "Start new game!";
+  var returnToHome = function(){
+    this.questionCounter = 0;
+    // this.character = null;
+    // this.characterName = "Athena";
+    this.view = document.querySelector('#view');
+    this.view.scrollLeft = 0;
+    this.quizCreator("Athena");
+  }
+  button.onclick = returnToHome.bind(this);
+  div.appendChild(button);
+  this.container.appendChild(div);
+}
+
 }
 
 module.exports = Logic;
