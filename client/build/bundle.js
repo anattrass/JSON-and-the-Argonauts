@@ -179,15 +179,16 @@
 	
 	
 	quizCreator: function(characterName){
-	  charSelected = this.characterInfo.retrieveCharacter(characterName);
-	
+	  console.log(characterName);
+	  var charSelected = this.characterInfo.retrieveCharacter(characterName);
+	console.log(charSelected);
 	  var quizDiv = document.createElement("div");
 	  var container = document.querySelector("#container");
 	  quizDiv.className = "fact-box";
 	  container.appendChild(quizDiv);
 	
 	  var quizContent = document.createElement("div");
-	  quizContent.innerText = charSelected[this.questionCounter].question;
+	  quizContent.innerText = charSelected.questions[this.questionCounter].question;
 	  quizDiv.appendChild(quizContent);
 	
 	  var falseButton = document.createElement("button");
@@ -562,9 +563,10 @@
 	
 	  CharacterInfo.prototype = {
 	    retrieveCharacter: function(characterName){
-	      for(character of this.characters){
-	        if(character.name === characterName){
-	          return character;
+	      console.log(this.characters);
+	      for(var key in this.characters){
+	        if(this.characters[key].name === characterName){
+	          return this.characters[key];
 	        }
 	      }
 	    }

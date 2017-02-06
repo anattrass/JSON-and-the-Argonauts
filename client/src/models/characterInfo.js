@@ -215,9 +215,10 @@ this.characters = {
 
   CharacterInfo.prototype = {
     retrieveCharacter: function(characterName){
-      for(character of this.characters){
-        if(character.name === characterName){
-          return character;
+      console.log(this.characters);
+      for(var key in this.characters){
+        if(this.characters[key].name === characterName){
+          return this.characters[key];
         }
       }
     }
