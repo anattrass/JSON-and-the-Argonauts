@@ -219,7 +219,7 @@
 	     // if (checkGameState() === true){
 	      // return;} else {
 	     // call moveCharacter function
-	    // increase question counter
+	    this.questionCounter ++;
 	    // return new quiz div
 	  } else {
 	  console.log("you failed ya numpty");
