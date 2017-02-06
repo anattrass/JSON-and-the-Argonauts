@@ -77,7 +77,7 @@
 	  // this.button.innerText = "test movement";
 	  // this.button.onclick = 
 	  // this.createButton();
-	  this.logic.quizCreator("Athena");
+	  this.logic.quizCreator("Apollo");
 	}
 	
 	UI.prototype = {
@@ -222,7 +222,9 @@
 	      // return;} else {
 	     // call moveCharacter function
 	     this.questionCounter ++;
-	     this.viewLogic.move(this.view.scrollLeft+400, function(){this.quizCreator(this.characterName)}.bind(this));
+	     this.viewLogic.move(this.view.scrollLeft+100, function(){
+	      this.quizCreator(this.characterName)
+	    }.bind(this));
 	    // this.quizCreator(this.characterName);
 	  } else {
 	    console.log("you failed ya numpty");

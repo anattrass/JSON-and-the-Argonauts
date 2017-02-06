@@ -18,7 +18,7 @@ var UI = function (){
   // this.button.innerText = "test movement";
   // this.button.onclick = 
   // this.createButton();
-  this.logic.quizCreator("Athena");
+  this.logic.quizCreator("Apollo");
 }
 
 UI.prototype = {
