@@ -31,21 +31,21 @@ UI.prototype = {
   //   divvy.className = "fact-box";
   // },
 
-  render: function(mythInfo){
-    var container = document.querySelector("#container");
-    this.infoDiv = document.createElement("div");
-    this.infoDiv.innerHTML = null; 
-    var mythParagraph = document.createElement("p");
-    mythParagraph.innerText = mythInfo;
-    this.infoDiv.className = "fact-box";
-    this.infoDiv.appendChild(mythParagraph);
-    container.appendChild(this.infoDiv);
-    var buttonDiv = document.querySelector('#button-div')
-    buttonDiv.innerHTML = null;
-    if (this.counter !== this.logic.characters.length){
-      this.createButton();
-    }
-  },
+  // render: function(mythInfo){
+  //   // var container = document.querySelector("#container");
+  //   // this.infoDiv = document.createElement("div");
+  //   // this.infoDiv.innerHTML = null; 
+  //   // var mythParagraph = document.createElement("p");
+  //   // mythParagraph.innerText = mythInfo;
+  //   // this.infoDiv.className = "fact-box";
+  //   // this.infoDiv.appendChild(mythParagraph);
+  //   // container.appendChild(this.infoDiv);
+  //   // var buttonDiv = document.querySelector('#button-div')
+  //   // buttonDiv.innerHTML = null;
+  //   // if (this.counter !== this.logic.characters.length){
+  //   //   this.createButton();
+  //   // }
+  // },
 
   createButton: function(){
     var buttonDiv = document.querySelector('#button-div')
@@ -62,10 +62,14 @@ UI.prototype = {
     }.bind(this);
   },
 
-  nextCharacter: function(){
-    this.mythFacts.getWiki(this.logic.characters[this.counter].name, this.render.bind(this));
-    this.counter ++;
-  }
+nextCharacter: function(){
+  this.logic.quizCreator(jason);
+}
+// When next character called it calls function getWiki in mythFacts and passes it character name and the render function from this module while binding this module.
+//   nextCharacter: function(){
+//     this.mythFacts.getWiki(this.logic.characters[this.counter].name, this.render.bind(this));
+//     this.counter ++;
+//   }
 }
 
 module.exports = UI;
