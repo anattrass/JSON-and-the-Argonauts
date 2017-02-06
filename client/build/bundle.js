@@ -177,6 +177,7 @@
 	      this.checkGameState();
 	    } else {
 	      console.log("you failed ya numpty");
+	      this.failDiv();
 	    }
 	  },
 	
@@ -195,11 +196,11 @@
 	  },
 	
 	  continue : function () {
-	      var quizDiv = document.querySelector(".fact-box");
-	      quizDiv.parentNode.removeChild(quizDiv);
-	      this.viewLogic.move(this.view.scrollLeft+100, function(){
-	        this.quizCreator(this.characterName)
-	      }.bind(this));
+	    var quizDiv = document.querySelector(".fact-box");
+	    quizDiv.parentNode.removeChild(quizDiv);
+	    this.viewLogic.move(this.view.scrollLeft+100, function(){
+	      this.quizCreator(this.characterName)
+	    }.bind(this));
 	  },
 	
 	// winDiv creates the win box returning a gracious message and a button that returns to the character select screen to begin the quiz again
@@ -209,6 +210,7 @@
 	  quizDiv.parentNode.removeChild(quizDiv);
 	  var div = document.createElement("div");
 	  div.className = "fact-box";
+	  var input = document.createElement("input");
 	  var button = document.createElement("button");
 	  div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
 	  button.innerText = "Start new game!";
@@ -218,11 +220,29 @@
 	    // this.characterName = "Athena";
 	    this.view = document.querySelector('#view');
 	    this.view.scrollLeft = 0;
-	    this.quizCreator("Athena");
+	    this.quizCreator(input.value);
 	  }
 	  button.onclick = returnToHome.bind(this);
 	  div.appendChild(button);
+	  div.appendChild(input);
 	  this.container.appendChild(div);
+	},
+	
+	failDiv: function(){
+	  var quizDiv = document.querySelector(".fact-box");
+	  quizDiv.parentNode.removeChild(quizDiv);
+	  var div = document.createElement("div");
+	  div.className = "fact-box";
+	  var button = document.createElement("button");
+	  div.innerText = "You have failed the Gods and now you must suffer in Hades' frosty bosom";
+	  button.innerText = "Back to the Underworld";
+	  button.onclick = function(){
+	    this.view.scrollLeft = 0;
+	    this.questionCounter = 0;
+	    this.quizCreator(this.characterName);
+	  }.bind(this);
+	  this.container.appendChild(div);
+	  div.appendChild(button);
 	}
 	
 	}
@@ -451,47 +471,47 @@
 	      {
 	        question: "Apollo was the patron of Delphi",
 	        answer: true
-	      },
-	      {
-	        question: "Asclepius is the son of Apollo",
-	        answer: true
-	      },
-	      {
-	        question: "Artemis is the twin sister of Apollo",
-	        answer: true
-	      },
-	      {
-	        question: "The lyre Apollo carries was created and given to him by Hermes",
-	        answer: true
-	      },
-	      {
-	        question: "Apollo was born in Mount Olympus",
-	        answer: false
-	      },
-	      {
-	        question: "Python was defeated by Apollo",
-	        answer: true
-	      },
-	      {
-	        question: "Apollo aided Paris in killing Achilles by guiding the arrow of his bow to Achilles heel",
-	        answer: true
-	      },
-	      {
-	        question: "Apollo had three sons to Cyrene",
-	        answer: false
-	      },
-	      {
-	        question:"Apollo won the musical challenge of Pan",
-	        answer: true
-	      },
-	      {
-	        question: "Hera sent the Chimera to hunt Apollo",
-	        answer: false
-	      },
-	      {
-	        question: "Apollo was leader of the Muses",
-	        answer: true
 	      }
+	      // {
+	      //   question: "Asclepius is the son of Apollo",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Artemis is the twin sister of Apollo",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "The lyre Apollo carries was created and given to him by Hermes",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Apollo was born in Mount Olympus",
+	      //   answer: false
+	      // },
+	      // {
+	      //   question: "Python was defeated by Apollo",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Apollo aided Paris in killing Achilles by guiding the arrow of his bow to Achilles heel",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Apollo had three sons to Cyrene",
+	      //   answer: false
+	      // },
+	      // {
+	      //   question:"Apollo won the musical challenge of Pan",
+	      //   answer: true
+	      // },
+	      // {
+	      //   question: "Hera sent the Chimera to hunt Apollo",
+	      //   answer: false
+	      // },
+	      // {
+	      //   question: "Apollo was leader of the Muses",
+	      //   answer: true
+	      // }
 	      ]
 	    }
 	  }

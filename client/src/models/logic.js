@@ -90,6 +90,7 @@ quizCreator: function(characterName){
       this.checkGameState();
     } else {
       console.log("you failed ya numpty");
+      this.failDiv();
     }
   },
 
@@ -108,11 +109,11 @@ quizCreator: function(characterName){
   },
 
   continue : function () {
-      var quizDiv = document.querySelector(".fact-box");
-      quizDiv.parentNode.removeChild(quizDiv);
-      this.viewLogic.move(this.view.scrollLeft+100, function(){
-        this.quizCreator(this.characterName)
-      }.bind(this));
+    var quizDiv = document.querySelector(".fact-box");
+    quizDiv.parentNode.removeChild(quizDiv);
+    this.viewLogic.move(this.view.scrollLeft+100, function(){
+      this.quizCreator(this.characterName)
+    }.bind(this));
   },
 
 // winDiv creates the win box returning a gracious message and a button that returns to the character select screen to begin the quiz again
@@ -122,6 +123,7 @@ winDiv : function(){
   quizDiv.parentNode.removeChild(quizDiv);
   var div = document.createElement("div");
   div.className = "fact-box";
+  var input = document.createElement("input");
   var button = document.createElement("button");
   div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
   button.innerText = "Start new game!";
@@ -131,11 +133,29 @@ winDiv : function(){
     // this.characterName = "Athena";
     this.view = document.querySelector('#view');
     this.view.scrollLeft = 0;
-    this.quizCreator("Athena");
+    this.quizCreator(input.value);
   }
   button.onclick = returnToHome.bind(this);
   div.appendChild(button);
+  div.appendChild(input);
   this.container.appendChild(div);
+},
+
+failDiv: function(){
+  var quizDiv = document.querySelector(".fact-box");
+  quizDiv.parentNode.removeChild(quizDiv);
+  var div = document.createElement("div");
+  div.className = "fact-box";
+  var button = document.createElement("button");
+  div.innerText = "You have failed the Gods and now you must suffer in Hades' frosty bosom";
+  button.innerText = "Back to the Underworld";
+  button.onclick = function(){
+    this.view.scrollLeft = 0;
+    this.questionCounter = 0;
+    this.quizCreator(this.characterName);
+  }.bind(this);
+  this.container.appendChild(div);
+  div.appendChild(button);
 }
 
 }

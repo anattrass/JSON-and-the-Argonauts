@@ -167,47 +167,47 @@ this.characters = {
       {
         question: "Apollo was the patron of Delphi",
         answer: true
-      },
-      {
-        question: "Asclepius is the son of Apollo",
-        answer: true
-      },
-      {
-        question: "Artemis is the twin sister of Apollo",
-        answer: true
-      },
-      {
-        question: "The lyre Apollo carries was created and given to him by Hermes",
-        answer: true
-      },
-      {
-        question: "Apollo was born in Mount Olympus",
-        answer: false
-      },
-      {
-        question: "Python was defeated by Apollo",
-        answer: true
-      },
-      {
-        question: "Apollo aided Paris in killing Achilles by guiding the arrow of his bow to Achilles heel",
-        answer: true
-      },
-      {
-        question: "Apollo had three sons to Cyrene",
-        answer: false
-      },
-      {
-        question:"Apollo won the musical challenge of Pan",
-        answer: true
-      },
-      {
-        question: "Hera sent the Chimera to hunt Apollo",
-        answer: false
-      },
-      {
-        question: "Apollo was leader of the Muses",
-        answer: true
       }
+      // {
+      //   question: "Asclepius is the son of Apollo",
+      //   answer: true
+      // },
+      // {
+      //   question: "Artemis is the twin sister of Apollo",
+      //   answer: true
+      // },
+      // {
+      //   question: "The lyre Apollo carries was created and given to him by Hermes",
+      //   answer: true
+      // },
+      // {
+      //   question: "Apollo was born in Mount Olympus",
+      //   answer: false
+      // },
+      // {
+      //   question: "Python was defeated by Apollo",
+      //   answer: true
+      // },
+      // {
+      //   question: "Apollo aided Paris in killing Achilles by guiding the arrow of his bow to Achilles heel",
+      //   answer: true
+      // },
+      // {
+      //   question: "Apollo had three sons to Cyrene",
+      //   answer: false
+      // },
+      // {
+      //   question:"Apollo won the musical challenge of Pan",
+      //   answer: true
+      // },
+      // {
+      //   question: "Hera sent the Chimera to hunt Apollo",
+      //   answer: false
+      // },
+      // {
+      //   question: "Apollo was leader of the Muses",
+      //   answer: true
+      // }
       ]
     }
   }
