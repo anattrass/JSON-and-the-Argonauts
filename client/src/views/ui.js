@@ -12,7 +12,6 @@ var UI = function (){
   this.content = document.querySelector("#content");
   // this.button = document.createElement('button');
   this.body = document.querySelector('body');
-  this.infoDiv = null;
   this.infoDiv = document.createElement("div");
   // this.inputButton = document.createElement("input");
   // this.inputButton.value = 700;
@@ -57,7 +56,7 @@ UI.prototype = {
     buttonDiv.appendChild(button);
     
     button.onclick = function(){
-      this.infoDiv.innerHTML = null;
+      this.infoDiv.visibility = "hidden";
       var currentScrollPos = document.querySelector("#view").scrollLeft;
       this.viewLogic.scrollMaster(currentScrollPos + 400, this.nextCharacter.bind(this));
     }.bind(this);
