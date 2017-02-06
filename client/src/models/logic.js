@@ -2,9 +2,11 @@ var Character = require('./character');
 var CharacterInfo = require('./characterInfo');
 
 var Logic = function() {
+  this.character = null;
   this.characterInfo = new CharacterInfo();
   this.generateCharacter();
-  this.questionCounter = 0
+  this.questionCounter = 0;
+  this.characterName = null;
 
 }
 
@@ -41,45 +43,48 @@ Logic.prototype = {
 
 quizCreator: function(characterName){
   console.log(characterName);
-  var charSelected = this.characterInfo.retrieveCharacter(characterName);
-console.log(charSelected);
+  this.characterName = characterName;
+  this.character = this.characterInfo.retrieveCharacter(characterName);
+console.log(this.character);
   var quizDiv = document.createElement("div");
   var container = document.querySelector("#container");
   quizDiv.className = "fact-box";
   container.appendChild(quizDiv);
 
   var quizContent = document.createElement("div");
-  quizContent.innerText = charSelected.questions[this.questionCounter].question;
+  quizContent.innerText = this.character.questions[this.questionCounter].question;
   quizDiv.appendChild(quizContent);
 
   var falseButton = document.createElement("button");
   var trueButton = document.createElement("button");
-  // falseButton.onclick = quizButtonOnClick;
-  falseButton.value = false;
+  falseButton.onclick = quizButtonOnClick;
+  // falseButton.value = false;
   falseButton.innerText = "False"
-  // trueButton.onclick = quizButtonOnClick;
-  trueButton.value = true;
+  trueButton.onclick = quizButtonOnClick;
+  // trueButton.value = true;
   trueButton.innerText = "True"
 
   quizDiv.appendChild(falseButton);
   quizDiv.appendChild(trueButton);
-}
+},
 
   // quizButton has the on click function that first gets the answer for the question then checks if it is equal to the false/true button clicked. It then calls to check the game state and evaluates if the player has won and will quit its function. If the player hasn't won it will call the scroll function,increase the question counter and create the next quiz question. If the player got the answer wrong it will call the failQuizDiv function.
 
-  var quizButtonOnClick = function(){
-    var answer = questions.charSelected[questionNum].answer;
-    if ( answer === button.value){
-     if (checkGameState() === true){
-      return;} else {
-     // call moveCharacter function
-    // increase question counter
-    // return new quiz div
-  }
-} else {
-// return failed quest div
-}
-}
+//   quizButtonOnClick : function(){
+//     var character = this.characterInfo.retrieveCharacter(characterName);
+//     var answer = character.questions[this.questionCounter].answer;
+
+//     if ( answer === button.value){
+//      if (checkGameState() === true){
+//       return;} else {
+//      // call moveCharacter function
+//     // increase question counter
+//     // return new quiz div
+//   }
+// } else {
+// // return failed quest div
+// }
+// }
 
 // checkGameState is the function used to check if the player has won by evaluating if the questionCounter reached the last question by comparing the length to the characters amount of questions
 
