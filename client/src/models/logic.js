@@ -48,6 +48,7 @@ quizCreator: function(characterName){
 console.log(this.character);
   var quizDiv = document.createElement("div");
   var container = document.querySelector("#container");
+  quizDiv.innerHTML = null;
   quizDiv.className = "fact-box";
   container.appendChild(quizDiv);
 
@@ -81,7 +82,7 @@ console.log(this.character);
       // return;} else {
      // call moveCharacter function
     this.questionCounter ++;
-    // return new quiz div
+    this.quizCreator(this.characterName);
   } else {
   console.log("you failed ya numpty");
 // return failed quest div
