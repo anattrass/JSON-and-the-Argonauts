@@ -1,13 +1,15 @@
 var Character = require('./character');
 var CharacterInfo = require('./characterInfo');
+var ViewLogic = require('../models/viewLogic');
 
 var Logic = function() {
   this.character = null;
   this.characterInfo = new CharacterInfo();
+  this.viewLogic = new ViewLogic();
   this.generateCharacter();
   this.questionCounter = 0;
   this.characterName = null;
-
+  this.view = document.querySelector('#view');
 }
 
 Logic.prototype = {
@@ -45,7 +47,7 @@ quizCreator: function(characterName){
   console.log(characterName);
   this.characterName = characterName;
   this.character = this.characterInfo.retrieveCharacter(characterName);
-console.log(this.character);
+  console.log(this.character);
   var quizDiv = document.createElement("div");
   var container = document.querySelector("#container");
   quizDiv.innerHTML = null;
@@ -81,12 +83,13 @@ console.log(this.character);
      // if (checkGameState() === true){
       // return;} else {
      // call moveCharacter function
-    this.questionCounter ++;
-    this.quizCreator(this.characterName);
+     this.questionCounter ++;
+     this.viewLogic.move(this.view.scrollLeft+400, function(){this.quizCreator(this.characterName)}.bind(this));
+    // this.quizCreator(this.characterName);
   } else {
-  console.log("you failed ya numpty");
+    console.log("you failed ya numpty");
 // return failed quest div
-}
+  }
 }
 
 // checkGameState is the function used to check if the player has won by evaluating if the questionCounter reached the last question by comparing the length to the characters amount of questions

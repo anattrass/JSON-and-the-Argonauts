@@ -1,5 +1,4 @@
 var Logic = require('../models/logic');
-var ViewLogic = require('../models/viewLogic')
 var MythFacts = require('../models/mythFacts');
 
 var UI = function (){
@@ -7,7 +6,6 @@ var UI = function (){
   this.logic = new Logic();
   this.mythFacts = new MythFacts();
   // this.nextCharacter();
-  this.viewLogic = new ViewLogic();
   this.view = document.querySelector('#view');
   this.content = document.querySelector("#content");
   // this.button = document.createElement('button');
@@ -19,7 +17,8 @@ var UI = function (){
   // this.body.appendChild(this.button);
   // this.button.innerText = "test movement";
   // this.button.onclick = 
-  this.createButton();
+  // this.createButton();
+  this.logic.quizCreator("Athena");
 }
 
 UI.prototype = {
@@ -62,9 +61,9 @@ UI.prototype = {
     }.bind(this);
   },
 
-nextCharacter: function(){
-  this.logic.quizCreator("Athena");
-}
+// nextCharacter: function(){
+//   this.logic.quizCreator("Athena");
+// }
 // When next character called it calls function getWiki in mythFacts and passes it character name and the render function from this module while binding this module.
 //   nextCharacter: function(){
 //     this.mythFacts.getWiki(this.logic.characters[this.counter].name, this.render.bind(this));

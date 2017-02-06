@@ -58,7 +58,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Logic = __webpack_require__(2);
-	var ViewLogic = __webpack_require__(3)
 	var MythFacts = __webpack_require__(4);
 	
 	var UI = function (){
@@ -66,7 +65,6 @@
 	  this.logic = new Logic();
 	  this.mythFacts = new MythFacts();
 	  // this.nextCharacter();
-	  this.viewLogic = new ViewLogic();
 	  this.view = document.querySelector('#view');
 	  this.content = document.querySelector("#content");
 	  // this.button = document.createElement('button');
@@ -78,7 +76,8 @@
 	  // this.body.appendChild(this.button);
 	  // this.button.innerText = "test movement";
 	  // this.button.onclick = 
-	  this.createButton();
+	  // this.createButton();
+	  this.logic.quizCreator("Athena");
 	}
 	
 	UI.prototype = {
@@ -121,9 +120,9 @@
 	    }.bind(this);
 	  },
 	
-	nextCharacter: function(){
-	  this.logic.quizCreator("Athena");
-	}
+	// nextCharacter: function(){
+	//   this.logic.quizCreator("Athena");
+	// }
 	// When next character called it calls function getWiki in mythFacts and passes it character name and the render function from this module while binding this module.
 	//   nextCharacter: function(){
 	//     this.mythFacts.getWiki(this.logic.characters[this.counter].name, this.render.bind(this));
@@ -139,14 +138,16 @@
 
 	var Character = __webpack_require__(5);
 	var CharacterInfo = __webpack_require__(6);
+	var ViewLogic = __webpack_require__(3);
 	
 	var Logic = function() {
 	  this.character = null;
 	  this.characterInfo = new CharacterInfo();
+	  this.viewLogic = new ViewLogic();
 	  this.generateCharacter();
 	  this.questionCounter = 0;
 	  this.characterName = null;
-	
+	  this.view = document.querySelector('#view');
 	}
 	
 	Logic.prototype = {
@@ -184,7 +185,7 @@
 	  console.log(characterName);
 	  this.characterName = characterName;
 	  this.character = this.characterInfo.retrieveCharacter(characterName);
-	console.log(this.character);
+	  console.log(this.character);
 	  var quizDiv = document.createElement("div");
 	  var container = document.querySelector("#container");
 	  quizDiv.innerHTML = null;
@@ -220,12 +221,13 @@
 	     // if (checkGameState() === true){
 	      // return;} else {
 	     // call moveCharacter function
-	    this.questionCounter ++;
-	    this.quizCreator(this.characterName);
+	     this.questionCounter ++;
+	     this.viewLogic.move(this.view.scrollLeft+400, function(){this.quizCreator(this.characterName)}.bind(this));
+	    // this.quizCreator(this.characterName);
 	  } else {
-	  console.log("you failed ya numpty");
+	    console.log("you failed ya numpty");
 	// return failed quest div
-	}
+	  }
 	}
 	
 	// checkGameState is the function used to check if the player has won by evaluating if the questionCounter reached the last question by comparing the length to the characters amount of questions
