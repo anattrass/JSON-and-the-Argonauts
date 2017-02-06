@@ -63,7 +63,7 @@ UI.prototype = {
   },
 
 nextCharacter: function(){
-  this.logic.quizCreator(jason);
+  this.logic.quizCreator("Jason");
 }
 // When next character called it calls function getWiki in mythFacts and passes it character name and the render function from this module while binding this module.
 //   nextCharacter: function(){

@@ -122,7 +122,7 @@
 	  },
 	
 	nextCharacter: function(){
-	  this.logic.quizCreator(jason);
+	  this.logic.quizCreator("Jason");
 	}
 	// When next character called it calls function getWiki in mythFacts and passes it character name and the render function from this module while binding this module.
 	//   nextCharacter: function(){
@@ -178,8 +178,8 @@
 	// This creates the quiz getting the main div and parenting it with a new quiz div that holds the characters questions. This also creates a false/true button and appends it to the quiz div.
 	
 	
-	quizCreator: function(character){
-	  charSelected = character;
+	quizCreator: function(characterName){
+	  charSelected = this.characterInfo.retrieveCharacter(characterName);
 	
 	  var quizDiv = document.createElement("div");
 	  var container = document.querySelector("#container");
@@ -187,7 +187,7 @@
 	  container.appendChild(quizDiv);
 	
 	  var quizContent = document.createElement("div");
-	  quizContent.innerText = this.characterInfo.charSelected[this.questionCounter].question;
+	  quizContent.innerText = charSelected[this.questionCounter].question;
 	  quizDiv.appendChild(quizContent);
 	
 	  var falseButton = document.createElement("button");

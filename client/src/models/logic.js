@@ -39,8 +39,8 @@ Logic.prototype = {
 // This creates the quiz getting the main div and parenting it with a new quiz div that holds the characters questions. This also creates a false/true button and appends it to the quiz div.
 
 
-quizCreator: function(character){
-  charSelected = character;
+quizCreator: function(characterName){
+  charSelected = this.characterInfo.retrieveCharacter(characterName);
 
   var quizDiv = document.createElement("div");
   var container = document.querySelector("#container");
@@ -48,7 +48,7 @@ quizCreator: function(character){
   container.appendChild(quizDiv);
 
   var quizContent = document.createElement("div");
-  quizContent.innerText = this.characterInfo.charSelected[this.questionCounter].question;
+  quizContent.innerText = charSelected[this.questionCounter].question;
   quizDiv.appendChild(quizContent);
 
   var falseButton = document.createElement("button");
