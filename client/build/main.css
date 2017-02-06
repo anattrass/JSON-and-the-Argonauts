@@ -1,0 +1,109 @@
+
+
+#view {
+	/*background-image: url("background1.jpg");*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 900px;
+	overflow: scroll;
+	overflow-y: hidden;
+	/*position: relative;*/
+}
+
+#content {
+	background-image: url("walkway.png");
+	background-repeat: repeat-x;
+	width: static;
+	margin-top: 660px;
+	position: relative;
+	/*padding: 1000, 0, 0, 0;*/
+	height: 100%;
+	min-width: 5000px;
+	display: inline-block;
+	background-attachment:local;
+	z-index: 0;
+	max-width: 1292;
+	/*border-collapse: collapse;*/
+
+}
+
+#container {
+	width: 1000px;
+	height: 900px;
+	margin: 0;
+	padding: 0;
+	background-image: url("background1.jpg");
+	background-size: cover;
+	position: center;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+#player {
+	margin-top: -200px;
+	margin-left: 20px;
+	height: 150px;
+	width: 150px;
+	/*background-color: white;*/
+	z-index: 100;
+	position: relative;
+}
+
+#player2 {
+	margin-top: 95px;
+	/*margin-left: 1200px;*/
+	margin-left: 900px;
+	margin-right: 0px;
+	position: absolute;
+}
+
+#player1dia {
+	margin-top: 40px;
+	width: 60px;
+	height: 30px;
+	background-color: white;
+	margin-left: 740px;
+	position: absolute;
+/*	margin: 0;*/
+	padding: 0;
+	display:none;
+}
+
+#player2dia {
+	margin-top: 50px;
+	width: 60px;
+	height: 30px;
+	background-color: white;
+	margin-left: 940px;
+	position: absolute;
+/*	margin: 0;*/
+	padding: 0;
+	display:none;
+}
+
+
+img {
+	max-width:100%;
+	max-height:100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.fact-box {
+	margin-top: -180px;
+	width: 500px;
+	height: 180px;
+	overflow: scroll;
+	/*height: 100px;*/
+	background-color: white;
+	margin-left: 300px;
+	position: absolute;
+/*	margin: 0;*/
+	padding: 0;
+	border-radius: 10px;
+}
