@@ -9,6 +9,18 @@
 	overflow-y: hidden;
 	/*position: relative;*/
 }
+#container {
+	width: 1000px;
+	height: 900px;
+	margin: 0;
+	padding: 0;
+	background-image: url("background1.jpg");
+	background-size: cover;
+	position: center;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
 
 #content {
 	background-image: url("walkway.png");
@@ -25,19 +37,6 @@
 	max-width: 1292;
 	/*border-collapse: collapse;*/
 
-}
-
-#container {
-	width: 1000px;
-	height: 900px;
-	margin: 0;
-	padding: 0;
-	background-image: url("background1.jpg");
-	background-size: cover;
-	position: center;
-	width: 100%;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
 }
 
 #player {

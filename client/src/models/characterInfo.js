@@ -139,7 +139,7 @@ this.characters = {
     },
     {
       question: "One of Heracles' 12 Labors was to kill Medusa.",
-      answer: true
+      answer: false
     },
     {
       question: "Heracles' iconic weapon of choice was a sword.",

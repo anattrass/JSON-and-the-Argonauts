@@ -84,6 +84,8 @@ quizCreator: function(characterName){
       // return;} else {
      // call moveCharacter function
      this.questionCounter ++;
+     var quizDiv = document.querySelector(".fact-box");
+     quizDiv.innerHTML = null;
      this.viewLogic.move(this.view.scrollLeft+100, function(){
       this.quizCreator(this.characterName)
     }.bind(this));

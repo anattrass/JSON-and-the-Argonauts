@@ -222,6 +222,8 @@
 	      // return;} else {
 	     // call moveCharacter function
 	     this.questionCounter ++;
+	     var quizDiv = document.querySelector(".fact-box");
+	     quizDiv.innerHTML = null;
 	     this.viewLogic.move(this.view.scrollLeft+100, function(){
 	      this.quizCreator(this.characterName)
 	    }.bind(this));
@@ -501,7 +503,7 @@
 	    },
 	    {
 	      question: "One of Heracles' 12 Labors was to kill Medusa.",
-	      answer: true
+	      answer: false
 	    },
 	    {
 	      question: "Heracles' iconic weapon of choice was a sword.",
