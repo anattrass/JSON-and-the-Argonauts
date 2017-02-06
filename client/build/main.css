@@ -11,15 +11,15 @@
 }
 #container {
 	width: 1000px;
-	height: 900px;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	background-image: url("background1.jpg");
 	background-size: cover;
-	position: center;
+	position: relative;
 	width: 100%;
 	background-repeat: no-repeat;
-	background-position: 50% 50%;
+	/*background-position: 50% 50%;*/
 }
 
 #content {
