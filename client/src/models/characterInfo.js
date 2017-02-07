@@ -3,6 +3,7 @@ this.characters = {
  jason : { 
     name: "Jason",
     image: "./images/hades.png",
+    background: "./images/background2.jpg",
     questions: [{
       question: "Jason was the leader of the Argonauts",
       answer: true,
@@ -68,6 +69,7 @@ this.characters = {
   athena : {
     name: "Athena",
     image: "./images/athena.png",
+    background: "./images/background1.jpg",
     questions: [{
       question: "Athena was born from zeus.",
       answer: true,
@@ -136,6 +138,7 @@ this.characters = {
   heracles : {
     name: "Heracles", 
     image: "./images/zeus.png",
+    background: "./images/background3.jpg",
     questions: [{
       question: "There were 10 Labors of Heracles.",
       answer: false,
@@ -200,6 +203,7 @@ this.characters = {
     apollo : {
       name: "Apollo",
       image: "./images/hermes.png",
+      background: "./images/background4.jpg",
       questions: [{
         question: "Zeus and Hera were the parents of Apollo",
         answer: false,

@@ -161,7 +161,7 @@ quizCreator: function(characterName){
   continue : function () {
     var quizDiv = document.querySelector(".fact-box");
     quizDiv.parentNode.removeChild(quizDiv);
-    this.viewLogic.move(this.view.scrollLeft+100, function(){
+    this.viewLogic.move(this.view.scrollLeft+500, function(){
       this.quizCreator(this.characterName)
     }.bind(this));
   },

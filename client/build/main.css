@@ -136,10 +136,12 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: dodgerblue;
 	position: absolute;
 	height: 75%;
 	width: 65%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 10;
 }
 
 .image-button {

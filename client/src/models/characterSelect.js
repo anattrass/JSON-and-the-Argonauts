@@ -57,6 +57,7 @@ CharacterSelect.prototype = {
     this.displayBigBoy(character.image);
     // this.mythInfo.getWiki(character.name, this.displayWiki);
     this.setPlayButton(character);
+    this.displayBackground(character.background);
   },
 
   displayBigBoy: function(image) {
@@ -65,6 +66,11 @@ CharacterSelect.prototype = {
     var bigCharacterContainer = document.querySelector(".big-character-container");
     bigCharacterContainer.innerHTML = null;
     bigCharacterContainer.appendChild(bigBoy);
+  },
+
+  displayBackground: function(image) {
+    var bigCharacterContainer = document.querySelector(".big-character-container");
+    bigCharacterContainer.style.backgroundImage = "url(" + image + ")";
   },
 
   setPlayButton: function(character) {
