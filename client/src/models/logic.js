@@ -49,10 +49,16 @@ quizCreator: function(characterName){
   this.characterName = characterName;
   this.character = this.characterInfo.retrieveCharacter(characterName);
   // console.log(this.character);
-  var quizDiv = document.createElement("div");
   var container = document.querySelector("#container");
-  quizDiv.innerHTML = null;
+  var factBox = document.querySelectorAll(".fact-box");
+  for (var i = 0; i< factBox.length; i++){
+    factBox[i].parentNode.removeChild(factBox[i]);
+  };
+  var quizDiv = document.createElement("div");
+  
+  quizDiv.innerHTML = "";
   quizDiv.className = "fact-box";
+
   container.appendChild(quizDiv);
 
   var quizContent = document.createElement("div");
@@ -60,11 +66,10 @@ quizCreator: function(characterName){
   // console.log(this.characterName);
   quizContent.innerText = this.character.questions[this.questionCounter].question;
   quizDiv.appendChild(quizContent);
-  var buttonDiv = document.createElement("div");
-  buttonDiv.className = "buttonDiv";
+
   var falseButton = document.createElement("button");
-  var trueButton = document.createElement("button");
   falseButton.className = "answerButton";
+  var trueButton = document.createElement("button");
   trueButton.className = "answerButton";
   falseButton.onclick = function(){this.quizButtonOnClick(false)
   }.bind(this);
@@ -78,6 +83,41 @@ quizCreator: function(characterName){
   quizDiv.appendChild(falseButton);
   quizDiv.appendChild(trueButton);
 },
+
+
+  createInfoDiv: function() {
+    var infoDiv = document.createElement('div');
+    infoDiv.style.display = 'visible';
+    infoDiv.className = "info-div";
+    console.log(this.character.questions[this.questionCounter -1].info);
+    infoDiv.innerText = this.character.questions[this.questionCounter -1].info;
+
+    var factBox = document.querySelector('.fact-box');
+
+    var falseButton = document.querySelector('.answerButton');
+    falseButton.style.display = 'none';
+    var trueButton = document.querySelector('.answerButton');
+    trueButton.style.display = 'none';
+    
+    var button = document.createElement('button');
+    button.className = "info-button";
+    button.innerText = "Next Question";
+
+    factBox.appendChild(infoDiv);
+    infoDiv.appendChild(button);
+    this.infoButtonOnClick();
+
+    // infoDiv.style.position = 'absolute';
+  },
+
+  infoButtonOnClick: function(){
+    var button = document.querySelector(".info-button");
+    var infoDiv = document.querySelector(".info-div");
+    button.onclick = function(){
+      this.continue();
+      infoDiv.style.display = 'none';
+    }.bind(this);
+  },
 
   // quizButton has the on click function that first gets the answer for the question then checks if it is equal to the false/true button clicked. It then calls to check the game state and evaluates if the player has won and will quit its function. If the player hasn't won it will call the scroll function,increase the question counter and create the next quiz question. If the player got the answer wrong it will call the failQuizDiv function.
 
@@ -106,8 +146,8 @@ quizCreator: function(characterName){
       console.log("hits first part of if statement")
       this.winDiv();
     } else {
-      console.log("hit continue function");
-      this.continue();
+      console.log("hit createInfoDiv function");
+      this.createInfoDiv();
     }
   },
 
