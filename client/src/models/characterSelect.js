@@ -37,7 +37,7 @@ CharacterSelect.prototype = {
     var playButton = document.createElement("div");
     playButton.className = "play-button";
     playButton.onclick = function() {
-      alert("you clicked me");
+      alert("Did you pick a character?");
     };
     var characters = [];
     for (name of this.characterNames){
