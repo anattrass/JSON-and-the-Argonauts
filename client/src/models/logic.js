@@ -49,6 +49,13 @@ quizCreator: function(characterName){
   this.characterName = characterName;
   this.character = this.characterInfo.retrieveCharacter(characterName);
   // console.log(this.character);
+  var player = document.querySelector("#player");
+  player.innerHTML = null;
+  var playerImage = document.createElement("img");
+  playerImage.src = this.character.image;
+  playerImage.style.backgroundRepeat = "no-repeat"
+  player.appendChild(playerImage);
+
   var container = document.querySelector("#container");
   var factBox = document.querySelectorAll(".fact-box");
   for (var i = 0; i< factBox.length; i++){
