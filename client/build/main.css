@@ -133,6 +133,9 @@ body {
 }
 
 .big-character-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: dodgerblue;
 	position: absolute;
 	height: 75%;
