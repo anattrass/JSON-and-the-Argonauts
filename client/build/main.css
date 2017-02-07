@@ -142,6 +142,8 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	opacity: 10;
+	background-color: hsla(0,0%,100%,0.70);
+	background-blend-mode: overlay;
 }
 
 .image-button {
