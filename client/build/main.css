@@ -163,12 +163,14 @@ body {
 }
 
 .play-button {
-	color: white;
-	font-size: 10em;
-	background-color: brown;
-	width: 66%;
-	height: 20%;
+	color: black;
+	font-size: 4em;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 50%;
+	height: 15%;
 	margin: 0% auto 0% auto;
+	text-align: center;
 }
 
 .play-button:hover {
