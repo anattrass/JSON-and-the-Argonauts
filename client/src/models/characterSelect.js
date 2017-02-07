@@ -1,9 +1,11 @@
 var CharacterInfo = require("./characterInfo");
 var Logic = require("./logic");
+var MythFacts = require("./mythFacts");
 
 var CharacterSelect = function(){
   this.characterInfo = new CharacterInfo();
   this.logic = new Logic();
+  this.mythFacts = new MythFacts();
   this.characterNames = ["Jason", "Athena", "Heracles", "Apollo"];
 }
 
@@ -55,7 +57,7 @@ CharacterSelect.prototype = {
 
   displayInfo: function(character) {
     this.displayBigBoy(character.image);
-    // this.mythInfo.getWiki(character.name, this.displayWiki);
+    this.mythFacts.getWiki(character.name, this.displayWiki);
     this.setPlayButton(character);
     this.displayBackground(character.background);
   },
@@ -71,6 +73,14 @@ CharacterSelect.prototype = {
   displayBackground: function(image) {
     var bigCharacterContainer = document.querySelector(".big-character-container");
     bigCharacterContainer.style.backgroundImage = "url(" + image + ")";
+  },
+
+  displayWiki: function(extract) {
+    var wikiContainer = document.querySelector(".wiki-container");
+    var wikiText = document.createElement("p");
+    wikiText.className = "wiki-text";
+    wikiText.innerText = extract;
+    wikiContainer.appendChild(wikiText);
   },
 
   setPlayButton: function(character) {
