@@ -1,7 +1,9 @@
 var CharacterInfo = require("./characterInfo");
+var Logic = require("./logic");
 
 var CharacterSelect = function(){
   this.characterInfo = new CharacterInfo();
+  this.logic = new Logic();
   this.characterNames = ["Jason", "Athena", "Heracles", "Apollo"];
 }
 
@@ -54,7 +56,7 @@ CharacterSelect.prototype = {
   displayInfo: function(character) {
     this.displayBigBoy(character.image);
     // this.mythInfo.getWiki(character.name, this.displayWiki);
-    // this.setPlayButton(character);
+    this.setPlayButton(character);
   },
 
   displayBigBoy: function(image) {
@@ -63,6 +65,21 @@ CharacterSelect.prototype = {
     var bigCharacterContainer = document.querySelector(".big-character-container");
     bigCharacterContainer.innerHTML = null;
     bigCharacterContainer.appendChild(bigBoy);
+  },
+
+  setPlayButton: function(character) {
+    var playButton = document.querySelector(".play-button");
+    playButton.onclick = function(){
+      var selectPageContainer = document.querySelector(".select-page-container");
+      selectPageContainer.parentNode.removeChild(selectPageContainer);
+      var view = document.querySelector("#view");
+      var content = document.querySelector("#content");
+      var player = document.querySelector("#player");
+      view.style.display = "block";
+      content.style.display = "block";
+      player.style.display = "block";
+      this.logic.quizCreator(character.name);
+    }.bind(this);
   }
 }
 
