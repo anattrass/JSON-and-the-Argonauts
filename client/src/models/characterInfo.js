@@ -2,6 +2,7 @@ var CharacterInfo = function(){
 this.characters = {
  jason : { 
     name: "Jason",
+    image: "./images/hades.png",
     questions: [{
       question: "Jason was the leader of the Argonauts",
       answer: true,
@@ -65,7 +66,8 @@ this.characters = {
   },
 
   athena : {
-    name: "Athena", 
+    name: "Athena",
+    image: "./images/athena.png",
     questions: [{
       question: "Athena was born from zeus.",
       answer: true,
@@ -133,6 +135,7 @@ this.characters = {
 
   heracles : {
     name: "Heracles", 
+    image: "./images/zeus.png",
     questions: [{
       question: "There were 10 Labors of Heracles.",
       answer: false,
@@ -196,6 +199,7 @@ this.characters = {
 
     apollo : {
       name: "Apollo",
+      image: "./images/hermes.png",
       questions: [{
         question: "Zeus and Hera were the parents of Apollo",
         answer: false,

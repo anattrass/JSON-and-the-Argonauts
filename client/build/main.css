@@ -38,9 +38,9 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 }
 
-
 /*the view is inside the container*/
 #view {
+	display: none;
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: scroll;
@@ -69,6 +69,7 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 
 /*the content is inside the view*/
 #content {
+	display: none;
 	background-image: url("walkway.png");
 	background-repeat: repeat-x;
 	position: relative;
@@ -83,6 +84,7 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 
 
 #player {
+	display: none;
 	margin-top: -270px;
 	margin-left: 20px;
 	height: 250px;

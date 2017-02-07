@@ -59,16 +59,13 @@
 
 	var Logic = __webpack_require__(2);
 	var MythFacts = __webpack_require__(6);
+	var CharacterSelect = __webpack_require__(7);
 	
 	var UI = function (){
-	  this.counter = 0;
-	  this.logic = new Logic();
-	  this.mythFacts = new MythFacts();
-	  this.view = document.querySelector('#view');
-	  this.content = document.querySelector("#content");
-	  this.body = document.querySelector('body');
-	  this.infoDiv = document.createElement("div");
-	  this.logic.quizCreator("Jason");
+	  // this.logic = new Logic();
+	  // this.logic.quizCreator("Jason");
+	  this.characterSelect = new CharacterSelect();
+	  this.characterSelect.createSelectPage();
 	}
 	
 	UI.prototype = {  
@@ -315,6 +312,7 @@
 	this.characters = {
 	 jason : { 
 	    name: "Jason",
+	    image: "./images/hades.png",
 	    questions: [{
 	      question: "Jason was the leader of the Argonauts",
 	      answer: true,
@@ -378,7 +376,8 @@
 	  },
 	
 	  athena : {
-	    name: "Athena", 
+	    name: "Athena",
+	    image: "./images/athena.png",
 	    questions: [{
 	      question: "Athena was born from zeus.",
 	      answer: true,
@@ -446,6 +445,7 @@
 	
 	  heracles : {
 	    name: "Heracles", 
+	    image: "./images/zeus.png",
 	    questions: [{
 	      question: "There were 10 Labors of Heracles.",
 	      answer: false,
@@ -509,6 +509,7 @@
 	
 	    apollo : {
 	      name: "Apollo",
+	      image: "./images/hermes.png",
 	      questions: [{
 	        question: "Zeus and Hera were the parents of Apollo",
 	        answer: false,
@@ -666,6 +667,49 @@
 	
 	module.exports = MythFacts;
 
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var CharacterInfo = __webpack_require__(4);
+	
+	var CharacterSelect = function(){
+	  this.characterInfo = new CharacterInfo();
+	  this.characterNames = ["Jason", "Athena", "Heracles", "Apollo"];
+	}
+	
+	CharacterSelect.prototype = {
+	
+	
+	  createImageButton: function(character){
+	    var imageButton = document.createElement("input");
+	    imageButton.type = "image";
+	    imageButton.className = "image-button";
+	    console.log(character.image);
+	    imageButton.src = character.image;
+	    console.log(imageButton.src);
+	    // imageButton.onclick = this.displayInfo(character).bind(this);
+	    return imageButton;
+	  },
+	
+	  createSelectPage: function(){
+	    var pageDiv = document.createElement("div")
+	    var buttonContainer = document.createElement("div");
+	    var characters = [];
+	    for (name of this.characterNames){
+	      characters.push(this.characterInfo.retrieveCharacter(name));
+	    }
+	    for (character of characters){
+	      buttonContainer.appendChild(this.createImageButton(character));
+	    }
+	    pageDiv.appendChild(buttonContainer);
+	    var container = document.querySelector("#container");
+	    container.appendChild(pageDiv);
+	  }
+	}
+	
+	module.exports = CharacterSelect;
 
 /***/ }
 /******/ ]);
