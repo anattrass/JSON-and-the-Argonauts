@@ -58,7 +58,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Logic = __webpack_require__(2);
-	var MythFacts = __webpack_require__(3);
+	var MythFacts = __webpack_require__(5);
 	
 	var UI = function (){
 	  this.counter = 0;
@@ -85,9 +85,9 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Character = __webpack_require__(4);
-	var CharacterInfo = __webpack_require__(5);
-	var ViewLogic = __webpack_require__(6);
+	var Character = __webpack_require__(3);
+	var CharacterInfo = __webpack_require__(6);
+	var ViewLogic = __webpack_require__(4);
 	
 	var Logic = function() {
 	  this.character = null;
@@ -147,9 +147,12 @@
 	  // console.log(this.characterName);
 	  quizContent.innerText = this.character.questions[this.questionCounter].question;
 	  quizDiv.appendChild(quizContent);
-	
+	  var buttonDiv = document.createElement("div");
+	  buttonDiv.className = "buttonDiv";
 	  var falseButton = document.createElement("button");
 	  var trueButton = document.createElement("button");
+	  falseButton.className = "answerButton";
+	  trueButton.className = "answerButton";
 	  falseButton.onclick = function(){this.quizButtonOnClick(false)
 	  }.bind(this);
 	  falseButton.value = false;
@@ -236,6 +239,7 @@
 	  var button = document.createElement("button");
 	  div.innerText = "You have failed the Gods and now you must suffer in Hades' frosty bosom";
 	  button.innerText = "Back to the Underworld";
+	  button.className = "answerButton";
 	  button.onclick = function(){
 	    this.view.scrollLeft = 0;
 	    this.questionCounter = 0;
@@ -251,6 +255,65 @@
 
 /***/ },
 /* 3 */
+/***/ function(module, exports) {
+
+	var Character = function(name){
+	  this.name = name;
+	}
+	
+	Character.prototype = {
+	
+	}
+	
+	module.exports = Character;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	var ViewLogic = function(){
+		
+	}
+	
+	ViewLogic.prototype = {
+		move: function(destination, event){
+		    var scroller = function(destination){
+	
+		      var view = document.querySelector('#view'); 
+		      console.log(view.scrollLeft);
+	
+		      if (view.scrollLeft <= destination){
+		        var y = view.scrollLeft;
+		        view.scrollLeft = y+5;
+	
+		        if(view.scrollLeft >= destination){
+		          event();
+		          clearInterval(smoothScroll);
+		        } 
+		      } else if (view.scrollLeft >= destination){
+		        var y = view.scrollLeft;
+		        view.scrollLeft = y-5;
+	
+		        if(view.scrollLeft <= destination){
+		          event();
+		          clearInterval(smoothScroll);
+		        }
+		      }
+		    }
+	
+		    var smoothScroll = setInterval(function(){scroller(destination)}, 20);
+		    console.log(view.scrollLeft);
+		  },
+		  scrollMaster: function(destination, event){
+		    this.move(destination, event);
+		    console.log("back");
+		  }
+	}
+	
+	module.exports = ViewLogic;
+
+/***/ },
+/* 5 */
 /***/ function(module, exports) {
 
 	var MythFacts = function(){
@@ -285,21 +348,7 @@
 
 
 /***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	var Character = function(name){
-	  this.name = name;
-	}
-	
-	Character.prototype = {
-	
-	}
-	
-	module.exports = Character;
-
-/***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
 	var CharacterInfo = function(){ 
@@ -529,51 +578,6 @@
 	  }
 	
 	  module.exports = CharacterInfo;
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	var ViewLogic = function(){
-		
-	}
-	
-	ViewLogic.prototype = {
-		move: function(destination, event){
-		    var scroller = function(destination){
-	
-		      var view = document.querySelector('#view'); 
-		      console.log(view.scrollLeft);
-	
-		      if (view.scrollLeft <= destination){
-		        var y = view.scrollLeft;
-		        view.scrollLeft = y+5;
-	
-		        if(view.scrollLeft >= destination){
-		          event();
-		          clearInterval(smoothScroll);
-		        } 
-		      } else if (view.scrollLeft >= destination){
-		        var y = view.scrollLeft;
-		        view.scrollLeft = y-5;
-	
-		        if(view.scrollLeft <= destination){
-		          event();
-		          clearInterval(smoothScroll);
-		        }
-		      }
-		    }
-	
-		    var smoothScroll = setInterval(function(){scroller(destination)}, 20);
-		    console.log(view.scrollLeft);
-		  },
-		  scrollMaster: function(destination, event){
-		    this.move(destination, event);
-		    console.log("back");
-		  }
-	}
-	
-	module.exports = ViewLogic;
 
 /***/ }
 /******/ ]);

@@ -60,9 +60,12 @@ quizCreator: function(characterName){
   // console.log(this.characterName);
   quizContent.innerText = this.character.questions[this.questionCounter].question;
   quizDiv.appendChild(quizContent);
-
+  var buttonDiv = document.createElement("div");
+  buttonDiv.className = "buttonDiv";
   var falseButton = document.createElement("button");
   var trueButton = document.createElement("button");
+  falseButton.className = "answerButton";
+  trueButton.className = "answerButton";
   falseButton.onclick = function(){this.quizButtonOnClick(false)
   }.bind(this);
   falseButton.value = false;
@@ -149,6 +152,7 @@ failDiv: function(){
   var button = document.createElement("button");
   div.innerText = "You have failed the Gods and now you must suffer in Hades' frosty bosom";
   button.innerText = "Back to the Underworld";
+  button.className = "answerButton";
   button.onclick = function(){
     this.view.scrollLeft = 0;
     this.questionCounter = 0;
