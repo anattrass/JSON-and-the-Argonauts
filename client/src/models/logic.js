@@ -57,6 +57,7 @@ quizCreator: function(characterName){
   player.appendChild(playerImage);
 
   var container = document.querySelector("#container");
+  container.style.backgroundImage = "url(" + this.character.background + ")";
   var factBox = document.querySelectorAll(".fact-box");
   for (var i = 0; i< factBox.length; i++){
     factBox[i].parentNode.removeChild(factBox[i]);
