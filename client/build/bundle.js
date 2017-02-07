@@ -58,7 +58,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Logic = __webpack_require__(2);
-	var MythFacts = __webpack_require__(6);
+	var MythFacts = __webpack_require__(5);
 	
 	var UI = function (){
 	  this.counter = 0;
@@ -86,8 +86,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Character = __webpack_require__(3);
-	var CharacterInfo = __webpack_require__(4);
-	var ViewLogic = __webpack_require__(5);
+	var CharacterInfo = __webpack_require__(6);
+	var ViewLogic = __webpack_require__(4);
 	
 	var Logic = function() {
 	  this.character = null;
@@ -190,8 +190,8 @@
 	    button.className = "info-button";
 	    button.innerText = "Next Question";
 	
+	    factBox.appendChild(button);
 	    factBox.appendChild(infoDiv);
-	    infoDiv.appendChild(button);
 	    this.infoButtonOnClick();
 	
 	    // infoDiv.style.position = 'absolute';
@@ -309,6 +309,86 @@
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+	var ViewLogic = function(){
+		
+	}
+	
+	ViewLogic.prototype = {
+		move: function(destination, event){
+		    var scroller = function(destination){
+	
+		      var view = document.querySelector('#view'); 
+		      console.log(view.scrollLeft);
+	
+		      if (view.scrollLeft <= destination){
+		        var y = view.scrollLeft;
+		        view.scrollLeft = y+5;
+	
+		        if(view.scrollLeft >= destination){
+		          event();
+		          clearInterval(smoothScroll);
+		        } 
+		      } else if (view.scrollLeft >= destination){
+		        var y = view.scrollLeft;
+		        view.scrollLeft = y-5;
+	
+		        if(view.scrollLeft <= destination){
+		          event();
+		          clearInterval(smoothScroll);
+		        }
+		      }
+		    }
+	
+		    var smoothScroll = setInterval(function(){scroller(destination)}, 20);
+		    console.log(view.scrollLeft);
+		  },
+		  scrollMaster: function(destination, event){
+		    this.move(destination, event);
+		    console.log("back");
+		  }
+	}
+	
+	module.exports = ViewLogic;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	var MythFacts = function(){
+	
+	}
+	
+	MythFacts.prototype = {
+	  makeRequest: function(url, callback){
+	    var request = new XMLHttpRequest();
+	    request.open("GET", url);
+	    request.onload = callback;
+	    request.send();
+	  },
+	
+	  getWiki: function(mythQuery, callback){
+	    var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + mythQuery + "&origin=*";
+	    this.makeRequest(url, function(){
+	      if (this.status !== 200){
+	        return;
+	      } else {
+	        var info = JSON.parse(this.responseText).query.pages;
+	        var pageKey = Object.keys(info)[0];
+	        var page = info[pageKey].extract;
+	        callback(page);
+	      }
+	    });
+	  }
+	
+	}
+	
+	module.exports = MythFacts;
+
+
+/***/ },
+/* 6 */
 /***/ function(module, exports) {
 
 	var CharacterInfo = function(){ 
@@ -586,86 +666,6 @@
 	  }
 	
 	  module.exports = CharacterInfo;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	var ViewLogic = function(){
-		
-	}
-	
-	ViewLogic.prototype = {
-		move: function(destination, event){
-		    var scroller = function(destination){
-	
-		      var view = document.querySelector('#view'); 
-		      console.log(view.scrollLeft);
-	
-		      if (view.scrollLeft <= destination){
-		        var y = view.scrollLeft;
-		        view.scrollLeft = y+5;
-	
-		        if(view.scrollLeft >= destination){
-		          event();
-		          clearInterval(smoothScroll);
-		        } 
-		      } else if (view.scrollLeft >= destination){
-		        var y = view.scrollLeft;
-		        view.scrollLeft = y-5;
-	
-		        if(view.scrollLeft <= destination){
-		          event();
-		          clearInterval(smoothScroll);
-		        }
-		      }
-		    }
-	
-		    var smoothScroll = setInterval(function(){scroller(destination)}, 20);
-		    console.log(view.scrollLeft);
-		  },
-		  scrollMaster: function(destination, event){
-		    this.move(destination, event);
-		    console.log("back");
-		  }
-	}
-	
-	module.exports = ViewLogic;
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	var MythFacts = function(){
-	
-	}
-	
-	MythFacts.prototype = {
-	  makeRequest: function(url, callback){
-	    var request = new XMLHttpRequest();
-	    request.open("GET", url);
-	    request.onload = callback;
-	    request.send();
-	  },
-	
-	  getWiki: function(mythQuery, callback){
-	    var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + mythQuery + "&origin=*";
-	    this.makeRequest(url, function(){
-	      if (this.status !== 200){
-	        return;
-	      } else {
-	        var info = JSON.parse(this.responseText).query.pages;
-	        var pageKey = Object.keys(info)[0];
-	        var page = info[pageKey].extract;
-	        callback(page);
-	      }
-	    });
-	  }
-	
-	}
-	
-	module.exports = MythFacts;
-
 
 /***/ }
 /******/ ]);

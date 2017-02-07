@@ -103,8 +103,8 @@ quizCreator: function(characterName){
     button.className = "info-button";
     button.innerText = "Next Question";
 
+    factBox.appendChild(button);
     factBox.appendChild(infoDiv);
-    infoDiv.appendChild(button);
     this.infoButtonOnClick();
 
     // infoDiv.style.position = 'absolute';
