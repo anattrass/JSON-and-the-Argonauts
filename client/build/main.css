@@ -79,10 +79,6 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 }
 
-
-
-
-
 #player {
 	display: none;
 	/*margin-top: -270px;*/
@@ -185,8 +181,18 @@ body {
 
 .restart-button {
 	position: absolute;
-	background-color: red;
+	background-image: url("./images/restart.jpg");
+	background-size: contain; 
+	height: 15%;
+	width: 12%;
+	background-repeat: no-repeat;
+	margin-left: 3%;
+	margin-top: 3%;
+}
 
+.restart-button:hover {
+	background-image: url("./images/restartButton.gif");
+	cursor: pointer;
 }
 
 

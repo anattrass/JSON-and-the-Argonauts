@@ -51,7 +51,6 @@ quizCreator: function(characterName){
   this.character = this.characterInfo.retrieveCharacter(characterName);
   // console.log(this.character);
   var restartButton = document.createElement("div");
-  restartButton.innerText = "Restart";
   restartButton.className = "restart-button";
   restartButton.onclick = this.returnToHome;
   var player = document.querySelector("#player");
