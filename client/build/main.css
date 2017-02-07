@@ -147,9 +147,20 @@ body {
 .wiki-container {
 	background-color: pink;
 	width: 86%;
-	height: 40%;
-	margin: 10% 7% 10% 7%;
+	height: 50%;
+	margin: 10% 7% 20% 7%;
 } 
+
+.play-button {
+	background-color: brown;
+	width: 86%;
+	height: 20%;
+	margin: 0% 7% 0% 7%;
+}
+
+.big-boy {
+	margin: auto;
+}
 
 
 
