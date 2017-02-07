@@ -104,5 +104,45 @@ body {
 	font-family: sans-serif;
 }
 
+.select-page-container {
+	z-index: 2;
+	position: absolute;
+	background-color: white;
+	height: 100%;
+	width: 100%;
+}
+
+.button-container {
+	display: flex;
+	justify-content: space-around;
+	bottom: 0;
+	border: 1px solid black;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: 65%;
+	height: 25%;
+}
+
+.wiki-container {
+	background-color: orange;
+	right: 0;
+	position: absolute;
+	height: 100%;
+	width: 35%;
+}
+
+.big-character-container {
+	background-color: dodgerblue;
+	position: absolute;
+	height: 75%;
+	width: 65%;
+}
+
+.image-button {
+	height: 100%;
+	width: auto;
+}
+
 
 
