@@ -9,7 +9,7 @@ var UI = function (){
   this.content = document.querySelector("#content");
   this.body = document.querySelector('body');
   this.infoDiv = document.createElement("div");
-  this.logic.quizCreator("Apollo");
+  this.logic.quizCreator("Jason");
 }
 
 UI.prototype = {  

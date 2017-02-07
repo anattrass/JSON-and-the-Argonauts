@@ -68,7 +68,7 @@
 	  this.content = document.querySelector("#content");
 	  this.body = document.querySelector('body');
 	  this.infoDiv = document.createElement("div");
-	  this.logic.quizCreator("Apollo");
+	  this.logic.quizCreator("Jason");
 	}
 	
 	UI.prototype = {  
@@ -155,9 +155,9 @@
 	  quizDiv.appendChild(quizContent);
 	
 	  var falseButton = document.createElement("button");
-	  falseButton.className = "answerButton";
+	  falseButton.className = "false-button";
 	  var trueButton = document.createElement("button");
-	  trueButton.className = "answerButton";
+	  trueButton.className = "true-button";
 	  falseButton.onclick = function(){this.quizButtonOnClick(false)
 	  }.bind(this);
 	  falseButton.value = false;
@@ -181,9 +181,9 @@
 	
 	    var factBox = document.querySelector('.fact-box');
 	
-	    var falseButton = document.querySelector('.answerButton');
+	    var falseButton = document.querySelector('.false-button');
 	    falseButton.style.display = 'none';
-	    var trueButton = document.querySelector('.answerButton');
+	    var trueButton = document.querySelector('.true-button');
 	    trueButton.style.display = 'none';
 	    
 	    var button = document.createElement('button');
