@@ -29,6 +29,8 @@ CharacterSelect.prototype = {
     buttonContainer.className = "button-container";
     var bigCharacterContainer = document.createElement("div");
     bigCharacterContainer.className = "big-character-container";
+    var sideBar = document.createElement("div");
+    sideBar.className = "side-bar";
     var wikiContainer = document.createElement("div");
     wikiContainer.className = "wiki-container";
     var characters = [];
@@ -40,7 +42,8 @@ CharacterSelect.prototype = {
     }
     selectPageContainer.appendChild(buttonContainer);
     selectPageContainer.appendChild(bigCharacterContainer);
-    selectPageContainer.appendChild(wikiContainer);
+    selectPageContainer.appendChild(sideBar);
+    sideBar.appendChild(wikiContainer);
     var container = document.querySelector("#container");
     container.appendChild(selectPageContainer);
   }

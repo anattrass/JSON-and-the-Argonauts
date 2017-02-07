@@ -124,7 +124,7 @@ body {
 	height: 25%;
 }
 
-.wiki-container {
+.side-bar {
 	background-color: orange;
 	right: 0;
 	position: absolute;
@@ -143,6 +143,13 @@ body {
 	height: 100%;
 	width: auto;
 }
+
+.wiki-container {
+	background-color: pink;
+	width: 86%;
+	height: 40%;
+	margin: 10% 7% 10% 7%;
+} 
 
 
 
