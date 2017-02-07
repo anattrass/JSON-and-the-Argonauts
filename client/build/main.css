@@ -125,7 +125,9 @@ body {
 }
 
 .side-bar {
-	background-color: orange;
+	background-color: white;
+	background-image: url("scroll.jpg");
+	background-size: contain;
 	right: 0;
 	position: absolute;
 	height: 100%;
@@ -152,11 +154,16 @@ body {
 }
 
 .wiki-container {
-	background-color: pink;
-	width: 86%;
-	height: 50%;
-	margin: 10% 7% 20% 7%;
+	width: 70%;
+	height: 40%;
+	margin: 30% 15% 20% 15%;
+	overflow: scroll;
 } 
+
+.wiki-text {
+	word-spacing-spacing: 0.2em;
+	font-size: 2em;
+}
 
 .play-button {
 	background-color: brown;
@@ -168,6 +175,8 @@ body {
 .big-boy {
 	margin: auto;
 }
+
+
 
 
 

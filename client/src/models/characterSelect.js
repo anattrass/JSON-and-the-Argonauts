@@ -77,6 +77,7 @@ CharacterSelect.prototype = {
 
   displayWiki: function(extract) {
     var wikiContainer = document.querySelector(".wiki-container");
+    wikiContainer.innerHTML = null;
     var wikiText = document.createElement("p");
     wikiText.className = "wiki-text";
     wikiText.innerText = extract;
