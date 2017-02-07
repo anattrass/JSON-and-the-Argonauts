@@ -211,7 +211,7 @@ this.characters = {
       name: "Apollo",
       image: "./images/hermes.png",
       background: "./images/background4.jpg",
-      walkway: "./images/walkway.png",
+      walkway: "./walkway.png",
 
       questions: [{
         question: "Zeus and Hera were the parents of Apollo",
