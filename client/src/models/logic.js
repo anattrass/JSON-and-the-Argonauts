@@ -53,10 +53,22 @@ quizCreator: function(characterName){
   var restartButton = document.createElement("div");
   restartButton.className = "restart-button";
   restartButton.onclick = this.returnToHome;
+
   var player = document.querySelector("#player");
   player.innerHTML = null;
   var playerImage = document.createElement("img");
   playerImage.src = this.character.image;
+
+  // var content = document.querySelector("#content");
+  // content.style.backgroundImage = "url(" + this.character.walkway + ")";
+  // var playerWalkway = document.createElement("img");
+  // playerWalkway.src = this.character.walkway;
+  // content.appendChild(playerWalkway);
+
+  var content = document.querySelector("#content");
+  content.style.backgroundImage = "url(" + this.character.walkway + ")";
+
+
   playerImage.style.backgroundRepeat = "no-repeat"
   player.appendChild(playerImage);
 

@@ -29,7 +29,7 @@
 /*the content is inside the view*/
 #content {
 	display: none;
-	background-image: url("walkway.png");
+	/*background-image: url("walkway.png");*/
 	background-repeat: repeat-x;
 	position: relative;
 	min-width: 5000px;
