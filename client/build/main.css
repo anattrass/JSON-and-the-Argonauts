@@ -83,10 +83,10 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 
 
 #player {
-	margin-top: -400px;
+	margin-top: -270px;
 	margin-left: 20px;
-	height: 850px;
-	width: 850px;
+	height: 250px;
+	width: 250px;
 	position: absolute;
 }
 
