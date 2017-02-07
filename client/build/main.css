@@ -3,8 +3,8 @@
 	display: inline-block;
 
 
-	width: 30%;
-	height: 30%;
+	width: 20%;
+	height: 20%;
 	margin-left: 60%;
 	margin-top: -35%;
   /*margin: -1300px 2000px;*/
@@ -22,10 +22,12 @@
 }
 
 .answerButton {
-padding: 20px 30px 21px !important;
+padding: 10px 20px 11px !important;
 font-size: 81% !important;
 background-color: #0D4F8B;
-margin: 50px 50px;
+display: inline-block;
+
+margin: 10px 10px;
 font-weight: bold;
 text-shadow: 1px 1px #0D4F8B;
 color: #ffffff;
