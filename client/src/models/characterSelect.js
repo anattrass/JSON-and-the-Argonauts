@@ -86,6 +86,7 @@ CharacterSelect.prototype = {
 
   setPlayButton: function(character) {
     var playButton = document.querySelector(".play-button");
+    playButton.innerText = "play";
     playButton.onclick = function(){
       var selectPageContainer = document.querySelector(".select-page-container");
       selectPageContainer.parentNode.removeChild(selectPageContainer);

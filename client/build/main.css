@@ -166,10 +166,16 @@ body {
 }
 
 .play-button {
+	color: white;
+	font-size: 10em;
 	background-color: brown;
-	width: 86%;
+	width: 66%;
 	height: 20%;
-	margin: 0% 7% 0% 7%;
+	margin: 0% auto 0% auto;
+}
+
+.play-button:hover {
+	cursor: pointer;
 }
 
 .big-boy {

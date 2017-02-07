@@ -1,6 +1,6 @@
 var Character = require('./character');
 var CharacterInfo = require('./characterInfo');
-var ViewLogic = require('../models/viewLogic');
+var ViewLogic = require('./viewLogic');
 
 var Logic = function() {
   this.character = null;
@@ -11,6 +11,7 @@ var Logic = function() {
   this.characterName = null;
   this.view = document.querySelector('#view');
   this.container = document.querySelector('#container');
+  // this.characterSelect = new CharacterSelect();
 }
 
 Logic.prototype = {
@@ -93,27 +94,27 @@ quizCreator: function(characterName){
 },
 
 
-  createInfoDiv: function() {
-    var infoDiv = document.createElement('div');
-    infoDiv.style.display = 'visible';
-    infoDiv.className = "info-div";
-    console.log(this.character.questions[this.questionCounter -1].info);
-    infoDiv.innerText = this.character.questions[this.questionCounter -1].info;
+createInfoDiv: function() {
+  var infoDiv = document.createElement('div');
+  infoDiv.style.display = 'visible';
+  infoDiv.className = "info-div";
+  console.log(this.character.questions[this.questionCounter -1].info);
+  infoDiv.innerText = this.character.questions[this.questionCounter -1].info;
 
-    var factBox = document.querySelector('.fact-box');
+  var factBox = document.querySelector('.fact-box');
 
-    var falseButton = document.querySelector('.false-button');
-    falseButton.style.display = 'none';
-    var trueButton = document.querySelector('.true-button');
-    trueButton.style.display = 'none';
-    
-    var button = document.createElement('button');
-    button.className = "info-button";
-    button.innerText = "Next Question";
+  var falseButton = document.querySelector('.false-button');
+  falseButton.style.display = 'none';
+  var trueButton = document.querySelector('.true-button');
+  trueButton.style.display = 'none';
 
-    factBox.appendChild(button);
-    factBox.appendChild(infoDiv);
-    this.infoButtonOnClick();
+  var button = document.createElement('button');
+  button.className = "info-button";
+  button.innerText = "Next Question";
+
+  factBox.appendChild(button);
+  factBox.appendChild(infoDiv);
+  this.infoButtonOnClick();
 
     // infoDiv.style.position = 'absolute';
   },
@@ -168,27 +169,37 @@ quizCreator: function(characterName){
   },
 
 // winDiv creates the win box returning a gracious message and a button that returns to the character select screen to begin the quiz again
+returnToHome: function(){
+  console.log(this)
+  this.questionCounter = 0;
+  this.view = document.querySelector('#view');
+  this.view.scrollLeft = 0;
+  var view = document.querySelector("#view");
+  var content = document.querySelector("#content");
+  var player = document.querySelector("#player");
+  view.style.display = "none";
+  content.style.display = "none";
+  player.style.display = "none";
+  var CharacterSelect = require('./characterSelect');
+  var characterSelect = new CharacterSelect();
+  characterSelect.createSelectPage();
+
+},
 
 winDiv : function(){
   var quizDiv = document.querySelector(".fact-box");
   quizDiv.parentNode.removeChild(quizDiv);
   var div = document.createElement("div");
   div.className = "fact-box";
-  var input = document.createElement("input");
+  // var input = document.createElement("input");
   var button = document.createElement("button");
   div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
   button.innerText = "Start new game!";
-  var returnToHome = function(){
-    this.questionCounter = 0;
-    // this.character = null;
-    // this.characterName = "Athena";
-    this.view = document.querySelector('#view');
-    this.view.scrollLeft = 0;
-    this.quizCreator(input.value);
-  }
-  button.onclick = returnToHome.bind(this);
+
+  //returntohome was here
+  button.onclick = this.returnToHome.bind(this);
   div.appendChild(button);
-  div.appendChild(input);
+  // div.appendChild(input);
   this.container.appendChild(div);
 },
 

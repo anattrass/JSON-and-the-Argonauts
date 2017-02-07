@@ -4,61 +4,62 @@ this.characters = {
     name: "Jason",
     image: "./images/hades.png",
     background: "./images/background2.jpg",
-    questions: [{
-      question: "Jason was the leader of the Argonauts",
-      answer: true,
-      info: "Correct! And what a leader he was"
-    },
-    {
-      question: "Jason was married to a sorceress",
-      answer: true,
-      info: "Yes, she was called Medea"
-    },
-    {
-      question: "Jason and his men were hunting for a black fleece",
-      answer: false,
-      info: "Right again, of course the fleece in question was golden"
-    },
-    {
-      question: "On their travels, the Argonauts encountered a tribe of giants called the Gegeines, who had 6 arms",
-      answer: true,
-      info: "Do you have 6 brains? You're well on your way now"
-    },
-    {
-      question: "Jason and his Argonauts once accidentally killed lots of their allies because they didn't recognise them in the dark.",
-      answer: true,
-      info: "That's right, if you were friends with Jason, it was best to keep the lights on."
-    },
-    {
-      question: "The Harpies were monsters with the face of a woman and the wings of a bat.",
-      answer: false,
-      info: "Half way! The Harpies had bird wings"
-    },
-    {
-      question: "After surviving the wrath of the gods, 6-armed giants, and a jealous sorceress, Jason was eventually killed by his own boat.",
-      answer: true,
-      info: "That's right! Not even a super magic death boat, just his own boat"
-    },
-    {
-      question: "Jason was once voiced by William Shatner",
-      answer: true,
-      info: "Well done! Captain Kirk and Jason too, what a range"
-    },
-    {
-      question: "Jason was raised by a Satyr",
-      answer: false,
-      info: "So close now! Jason was raised by a Centaur, Chiron, to keep him safe from his murderous half-uncle."
-    },
-    {
-      question: "To retrieve the Golden Fleece, Jason was required to complete three tasks. One of these was to plough a field with fire-breathing oxen.",
-      answer: true,
-      info: "Yes! Jason, a talented man on the waves and in the fields."
-    },
-    {
-      question: "Another task was to defeat the Cyclopes.",
-      answer: false,
-      info: "You're correct, not one of his three tasks"
-    },
+    questions: [
+    // {
+    //   question: "Jason was the leader of the Argonauts",
+    //   answer: true,
+    //   info: "Correct! And what a leader he was"
+    // },
+    // {
+    //   question: "Jason was married to a sorceress",
+    //   answer: true,
+    //   info: "Yes, she was called Medea"
+    // },
+    // {
+    //   question: "Jason and his men were hunting for a black fleece",
+    //   answer: false,
+    //   info: "Right again, of course the fleece in question was golden"
+    // },
+    // {
+    //   question: "On their travels, the Argonauts encountered a tribe of giants called the Gegeines, who had 6 arms",
+    //   answer: true,
+    //   info: "Do you have 6 brains? You're well on your way now"
+    // },
+    // {
+    //   question: "Jason and his Argonauts once accidentally killed lots of their allies because they didn't recognise them in the dark.",
+    //   answer: true,
+    //   info: "That's right, if you were friends with Jason, it was best to keep the lights on."
+    // },
+    // {
+    //   question: "The Harpies were monsters with the face of a woman and the wings of a bat.",
+    //   answer: false,
+    //   info: "Half way! The Harpies had bird wings"
+    // },
+    // {
+    //   question: "After surviving the wrath of the gods, 6-armed giants, and a jealous sorceress, Jason was eventually killed by his own boat.",
+    //   answer: true,
+    //   info: "That's right! Not even a super magic death boat, just his own boat"
+    // },
+    // {
+    //   question: "Jason was once voiced by William Shatner",
+    //   answer: true,
+    //   info: "Well done! Captain Kirk and Jason too, what a range"
+    // },
+    // {
+    //   question: "Jason was raised by a Satyr",
+    //   answer: false,
+    //   info: "So close now! Jason was raised by a Centaur, Chiron, to keep him safe from his murderous half-uncle."
+    // },
+    // {
+    //   question: "To retrieve the Golden Fleece, Jason was required to complete three tasks. One of these was to plough a field with fire-breathing oxen.",
+    //   answer: true,
+    //   info: "Yes! Jason, a talented man on the waves and in the fields."
+    // },
+    // {
+    //   question: "Another task was to defeat the Cyclopes.",
+    //   answer: false,
+    //   info: "You're correct, not one of his three tasks"
+    // },
     {
       question: "The magical warriors called Spartoi appeared when Jason sowed a field with a dragon's teeth.",
       answer: true,
