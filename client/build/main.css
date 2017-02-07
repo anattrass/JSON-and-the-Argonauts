@@ -1,10 +1,53 @@
+#container {
+	background-image: url("background1.jpg");
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	-o-background-size: 100%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position:fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height:100%;
+	z-index:1;
+	overflow: hidden;
+}
+
+/*the view is inside the container*/
+#view {
+	display: none;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: scroll;
+	overflow-y: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+/*the content is inside the view*/
+#content {
+	display: none;
+	background-image: url("walkway.png");
+	background-repeat: repeat-x;
+	position: relative;
+	min-width: 5000px;
+	display: inline-block;
+	background-attachment:local;
+	z-index: 0;
+	width: 20000px;
+	height: 100%;
+	background-size: auto 100%;
+}
+
 .fact-box {
 	position: absolute;
 	display: inline-block;
 	width: 20%;
 	height: 20%;
 	margin-left: 60%;
-	margin-top: -35%;
+	margin-top: 20%;
 	padding: 0px;
 	border: 1px solid #00688B;
 	color: #00688B;
@@ -16,8 +59,6 @@
 	background: -moz-linear-gradient(bottom, #009ACD, #B2DFEE 450px);
 	background: linear-gradient(bottom, #009ACD, #B2DFEE 450px);
 }
-
-
 
 button {
 padding: 10px 20px 11px !important;
@@ -38,55 +79,15 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 }
 
-/*the view is inside the container*/
-#view {
-	display: none;
-	background-repeat: no-repeat;
-	background-size: cover;
-	overflow: scroll;
-	overflow-y: hidden;
-	width: 100%;
-	height: 100%;
-}
 
 
-#container {
-	background-image: url("background1.jpg");
-	-webkit-background-size: 100%;
-	-moz-background-size: 100%;
-	-o-background-size: 100%;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	position:fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height:100%;
-	z-index:1;
-	overflow: hidden;
-}
-
-
-/*the content is inside the view*/
-#content {
-	display: none;
-	background-image: url("walkway.png");
-	background-repeat: repeat-x;
-	position: relative;
-	min-width: 5000px;
-	display: inline-block;
-	background-attachment:local;
-	z-index: 0;
-	width: 20000px;
-	height: 100%;
-	background-size: auto 100%;
-}
 
 
 #player {
 	display: none;
-	margin-top: -270px;
+	/*margin-top: -270px;*/
 	margin-left: 20px;
+	bottom:30px;
 	height: 250px;
 	width: 250px;
 	position: absolute;
@@ -180,6 +181,12 @@ body {
 
 .big-boy {
 	margin: auto;
+}
+
+.restart-button {
+	position: absolute;
+	background-color: red;
+
 }
 
 
