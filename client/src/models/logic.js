@@ -11,7 +11,6 @@ var Logic = function() {
   this.characterName = null;
   this.view = document.querySelector('#view');
   this.container = document.querySelector('#container');
-  // this.characterSelect = new CharacterSelect();
 }
 
 Logic.prototype = {
@@ -24,46 +23,21 @@ Logic.prototype = {
   },
 
 
-// This creates the character select screen with 4 button images each if the value of the character key and click function that calls to create the quiz
-// charSelected = null;
-
-// var characterSelectCreator = function(quizData){
-//   mainDiv = document.querySelector("#info")
-//   // wipe all children from div this is assigned to
-//   mainDiv.innerHTML = null;
-//   // require in UI the quiz json data to be used
-//   for (character of quizData){
-//     button = document.createElement("button")
-//     button.id = "charButton"
-//     button.type = character.image;
-//     button.value = character;
-//     button.onclick = quizCreator(this.value);
-//     mainDiv.appendChild(button);
-//   }
-// };
-
-// This creates the quiz getting the main div and parenting it with a new quiz div that holds the characters questions. This also creates a false/true button and appends it to the quiz div.
-
-
 quizCreator: function(characterName){
-  // console.log(characterName);
   this.characterName = characterName;
   this.character = this.characterInfo.retrieveCharacter(characterName);
-  // console.log(this.character);
   var restartButton = document.createElement("div");
   restartButton.className = "restart-button";
   restartButton.onclick = this.returnToHome;
+  var restartButtonContainer = document.createElement("div");
+  restartButtonContainer.className = "restart-button-container";
+  restartButtonContainer.appendChild(restartButton);
 
   var player = document.querySelector("#player");
   player.innerHTML = null;
   var playerImage = document.createElement("img");
   playerImage.src = this.character.image;
 
-  // var content = document.querySelector("#content");
-  // content.style.backgroundImage = "url(" + this.character.walkway + ")";
-  // var playerWalkway = document.createElement("img");
-  // playerWalkway.src = this.character.walkway;
-  // content.appendChild(playerWalkway);
 
   var content = document.querySelector("#content");
   content.style.backgroundImage = "url(" + this.character.walkway + ")";
@@ -78,19 +52,20 @@ quizCreator: function(characterName){
   for (var i = 0; i< factBox.length; i++){
     factBox[i].parentNode.removeChild(factBox[i]);
   };
-  var quizDiv = document.createElement("div");
   
-  quizDiv.innerHTML = "";
+  var quizDiv = document.createElement("div");
+  quizDiv.innerHTML = null;
   quizDiv.className = "fact-box";
+  var innerFactBox = document.createElement("div");
+  innerFactBox.className = "inner-fact-box"
 
+  quizDiv.appendChild(innerFactBox);
   container.appendChild(quizDiv);
-  container.appendChild(restartButton);
+  container.appendChild(restartButtonContainer);
 
   var quizContent = document.createElement("div");
-  // console.log(this.character);
-  // console.log(this.characterName);
   quizContent.innerText = this.character.questions[this.questionCounter].question;
-  quizDiv.appendChild(quizContent);
+  innerFactBox.appendChild(quizContent);
 
   var falseButton = document.createElement("button");
   falseButton.className = "false-button";
@@ -105,8 +80,8 @@ quizCreator: function(characterName){
   trueButton.value = true;
   trueButton.innerText = "True"
 
-  quizDiv.appendChild(falseButton);
-  quizDiv.appendChild(trueButton);
+  innerFactBox.appendChild(falseButton);
+  innerFactBox.appendChild(trueButton);
 },
 
 
@@ -117,7 +92,7 @@ createInfoDiv: function() {
   console.log(this.character.questions[this.questionCounter -1].info);
   infoDiv.innerText = this.character.questions[this.questionCounter -1].info;
 
-  var factBox = document.querySelector('.fact-box');
+  var factBox = document.querySelector('.inner-fact-box');
 
   var falseButton = document.querySelector('.false-button');
   falseButton.style.display = 'none';
