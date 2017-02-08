@@ -6,7 +6,6 @@ var Logic = function() {
   this.character = null;
   this.characterInfo = new CharacterInfo();
   this.viewLogic = new ViewLogic();
-  this.generateCharacter();
   this.questionCounter = 0;
   this.characterName = null;
   this.view = document.querySelector('#view');
@@ -14,13 +13,6 @@ var Logic = function() {
 }
 
 Logic.prototype = {
-  generateCharacter: function(){
-    this.characters = [];
-    this.characters.push(new Character("Heracles"));
-    this.characters.push(new Character("Apollo"));
-    this.characters.push(new Character("Athena"));
-    this.characters.push(new Character("Jason"));
-  },
 
   buildFactBox: function(){
     var factBox = document.querySelectorAll(".fact-box");
