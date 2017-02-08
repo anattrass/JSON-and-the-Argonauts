@@ -229,22 +229,32 @@ body {
 
 .play-button:hover {
 	cursor: pointer;
-
 }
 
 .big-boy {
 	margin: auto;
 }
 
+.restart-button-container {
+	position: absolute;
+	height: 15%;
+	width: 8.5%;
+	margin-left: 3%;
+	margin-top: 3%;
+	overflow: hidden;
+	border-radius: 5px;
+	z-index: 1;
+}
+
 .restart-button {
 	position: absolute;
 	background-image: url("./images/restart.jpg");
 	background-size: contain; 
-	height: 15%;
-	width: 9%;
+	height: 120%;
+	width: 130%;
 	background-repeat: no-repeat;
-	margin-left: 3%;
-	margin-top: 3%;
+	margin-left: -10%;
+	margin-top: -10%;
 }
 
 .restart-button:hover {

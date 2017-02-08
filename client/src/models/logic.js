@@ -53,6 +53,9 @@ quizCreator: function(characterName){
   var restartButton = document.createElement("div");
   restartButton.className = "restart-button";
   restartButton.onclick = this.returnToHome;
+  var restartButtonContainer = document.createElement("div");
+  restartButtonContainer.className = "restart-button-container";
+  restartButtonContainer.appendChild(restartButton);
 
   var player = document.querySelector("#player");
   player.innerHTML = null;
@@ -84,7 +87,7 @@ quizCreator: function(characterName){
   quizDiv.className = "fact-box";
 
   container.appendChild(quizDiv);
-  container.appendChild(restartButton);
+  container.appendChild(restartButtonContainer);
 
   var quizContent = document.createElement("div");
   // console.log(this.character);
