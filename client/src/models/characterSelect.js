@@ -102,18 +102,12 @@ CharacterSelect.prototype = {
   displayUrlLink: function(character){
     var urlLinkContainer = document.querySelector(".url-link-container");
     urlLinkContainer.innerHTML = null;
-<<<<<<< HEAD
-    var urlLink = document.createElement("a");
-    urlLink.href = character.url;
-    urlLink.innerText = "Find out more!";
-=======
     var urlLink = document.createElement("a")
     urlLink.className = "link-button"
     urlLink.href = character.url;
     var image = document.createElement('img')
     image.src = "./images/learn-more-button-3.png"
     urlLink.appendChild(image);
->>>>>>> develop
     urlLinkContainer.appendChild(urlLink);
   }, 
 
