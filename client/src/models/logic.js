@@ -27,6 +27,7 @@ Logic.prototype = {
     quizDiv.innerHTML = null;
     quizDiv.className = "fact-box";
     quizDiv.appendChild(innerFactBox);
+    quizDiv.appendChild(this.buildQuestionCount());
 
     var container = document.querySelector("#container");
     container.appendChild(quizDiv);
@@ -70,6 +71,15 @@ Logic.prototype = {
 
     var container = document.querySelector("#container");
     container.appendChild(restartButtonContainer);
+  },
+
+  buildQuestionCount: function(){
+    var questionCountDisplay = document.querySelector(".question-count-display") || document.createElement("div");
+    questionCountDisplay.className = "question-count-display";
+    var text = document.createElement("p");
+    text.innerText = "" + (this.questionCounter + 1) + " / 12"
+    questionCountDisplay.appendChild(text);
+    return questionCountDisplay;
   },
 
   buildPlayer: function(){
@@ -118,8 +128,6 @@ Logic.prototype = {
     factBox.appendChild(button);
     factBox.appendChild(infoDiv);
     this.infoButtonOnClick();
-
-    // infoDiv.style.position = 'absolute';
   },
 
   infoButtonOnClick: function(){
@@ -131,13 +139,8 @@ Logic.prototype = {
     }.bind(this);
   },
 
-  // quizButton has the on click function that first gets the answer for the question then checks if it is equal to the false/true button clicked. It then calls to check the game state and evaluates if the player has won and will quit its function. If the player hasn't won it will call the scroll function,increase the question counter and create the next quiz question. If the player got the answer wrong it will call the failQuizDiv function.
-
   quizButtonOnClick : function(choice){
-    // console.log(this.questionCounter);
-    // console.log(this.character.questions[this.questionCounter]);
     var answer = this.character.questions[this.questionCounter].answer;
-
 
     if ( answer === choice){
       console.log("your right!");
@@ -149,11 +152,7 @@ Logic.prototype = {
     }
   },
 
-  // checkGameState is the function used to check if the player has won by evaluating if the questionCounter reached the last question by comparing the length to the characters amount of questions
-
   checkGameState : function(){
-    // console.log(this.questionCounter);
-    // console.log(this.character.questions.length);
     if (this.questionCounter === this.character.questions.length){
       console.log("hits first part of if statement")
       this.winDiv();
@@ -171,59 +170,52 @@ Logic.prototype = {
     }.bind(this));
   },
 
-// winDiv creates the win box returning a gracious message and a button that returns to the character select screen to begin the quiz again
-returnToHome: function(){
-  console.log(this)
-  this.questionCounter = 0;
-  this.view = document.querySelector('#view');
-  this.view.scrollLeft = 0;
-  var view = document.querySelector("#view");
-  var content = document.querySelector("#content");
-  var player = document.querySelector("#player");
-  view.style.display = "none";
-  content.style.display = "none";
-  player.style.display = "none";
-  var CharacterSelect = require('./characterSelect');
-  var characterSelect = new CharacterSelect();
-  characterSelect.createSelectPage();
-
-},
-
-winDiv : function(){
-  var quizDiv = document.querySelector(".fact-box");
-  quizDiv.parentNode.removeChild(quizDiv);
-  var div = document.createElement("div");
-  div.className = "fact-box";
-  // var input = document.createElement("input");
-  var button = document.createElement("button");
-  div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
-  button.innerText = "Start new game!";
-
-  //returntohome was here
-  button.onclick = this.returnToHome.bind(this);
-  div.appendChild(button);
-  // div.appendChild(input);
-  this.container.appendChild(div);
-},
-
-failDiv: function(){
-  var quizDiv = document.querySelector(".fact-box");
-  quizDiv.parentNode.removeChild(quizDiv);
-  var div = document.createElement("div");
-  div.className = "fact-box";
-  var button = document.createElement("button");
-  div.innerText = "You have failed the Gods and now you must suffer in Hades' frosty bosom";
-  button.innerText = "Back to the Underworld";
-  button.className = "answerButton";
-  button.onclick = function(){
-    this.view.scrollLeft = 0;
+  returnToHome: function(){
+    console.log(this)
     this.questionCounter = 0;
-    this.quizCreator(this.characterName);
-  }.bind(this);
-  this.container.appendChild(div);
-  div.appendChild(button);
-}
+    this.view = document.querySelector('#view');
+    this.view.scrollLeft = 0;
+    var view = document.querySelector("#view");
+    var content = document.querySelector("#content");
+    var player = document.querySelector("#player");
+    view.style.display = "none";
+    content.style.display = "none";
+    player.style.display = "none";
+    var CharacterSelect = require('./characterSelect');
+    var characterSelect = new CharacterSelect();
+    characterSelect.createSelectPage();
+  },
 
+  winDiv : function(){
+    var quizDiv = document.querySelector(".fact-box");
+    quizDiv.parentNode.removeChild(quizDiv);
+    var div = document.createElement("div");
+    div.className = "fact-box";
+    var button = document.createElement("button");
+    div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
+    button.innerText = "Start new game!";
+    button.onclick = this.returnToHome.bind(this);
+    div.appendChild(button);
+    this.container.appendChild(div);
+  },
+
+  failDiv: function(){
+    var quizDiv = document.querySelector(".fact-box");
+    quizDiv.parentNode.removeChild(quizDiv);
+    var div = document.createElement("div");
+    div.className = "fact-box";
+    var button = document.createElement("button");
+    div.innerText = "You have failed the Gods and now you must suffer in Hades' frosty bosom!";
+    button.innerText = "Back to the Underworld";
+    button.className = "answerButton";
+    button.onclick = function(){
+      this.view.scrollLeft = 0;
+      this.questionCounter = 0;
+      this.quizCreator(this.characterName);
+    }.bind(this);
+    this.container.appendChild(div);
+    div.appendChild(button);
+  }
 }
 
 module.exports = Logic;
