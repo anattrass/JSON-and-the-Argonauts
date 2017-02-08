@@ -1,12 +1,16 @@
 // var Logic = require('../models/logic');
 var MythFacts = require('../models/mythFacts');
 var CharacterSelect = require("../models/characterSelect");
+var HomePage = require("../models/homepage");
+
 
 var UI = function (){
   // this.logic = new Logic();
   // this.logic.quizCreator("Jason");
-  this.characterSelect = new CharacterSelect();
-  this.characterSelect.createSelectPage();
+  // this.characterSelect = new CharacterSelect();
+  // this.characterSelect.createSelectPage();
+  this.homepage = new HomePage();
+  this.homepage.createHomePage();
 }
 
 UI.prototype = {  
