@@ -5,6 +5,7 @@ this.characters = {
     image: "./images/hades.png",
     background: "./images/background2.jpg",
     walkway: "./images/walkway2.png",
+    url: "http://www.ancient.eu/article/425/",
 
     questions: [
     {
@@ -74,6 +75,7 @@ this.characters = {
     image: "./images/athena.png",
     background: "./images/background1.jpg",
     walkway: "./images/walkway3.png",
+    url: "http://www.ancient.eu/athena/",
 
     questions: [{
       question: "Athena was born from zeus.",
@@ -145,6 +147,7 @@ this.characters = {
     image: "./images/zeus.png",
     background: "./images/background3.jpg",
     walkway: "./images/walkway4.png",
+    url: "http://www.ancient.eu/hercules/",
 
     questions: [{
       question: "There were 10 Labors of Heracles.",
@@ -212,6 +215,8 @@ this.characters = {
       image: "./images/hermes.png",
       background: "./images/background4.jpg",
       walkway: "./walkway.png",
+      url: "http://www.ancient.eu/apollo/",
+
 
       questions: [{
         question: "Zeus and Hera were the parents of Apollo",
