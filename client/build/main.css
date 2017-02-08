@@ -116,6 +116,36 @@ body {
 	font-family: sans-serif;
 }
 
+.select-home-page-container {
+	background-image: url("homepage.png");
+	z-index: 2;
+	position: center;
+	height: 100%;
+	width: 100%;
+}
+
+.enter-button{
+	padding: 5px 15px 6px !important;
+/*	font-size: 61% !important;*/
+	background-color: #000000 ;
+	display: inline-block;
+	margin: 10px 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px ##404040 ;
+	/*color: #ffffff;*/
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	border: 1px solid ##404040 ;
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+
+
+
 .select-page-container {
 	z-index: 2;
 	position: absolute;
@@ -186,6 +216,15 @@ body {
 	height: 290px;
 	width: 280px;
 	}
+<<<<<<< HEAD
+=======
+
+
+.play-button:hover {
+	cursor: pointer;
+}
+
+>>>>>>> 88016d6e9f2dcb3f7c377db20615f6471f07f9de
 
 .big-boy {
 	margin: auto;
