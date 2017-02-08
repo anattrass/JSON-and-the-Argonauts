@@ -122,17 +122,15 @@ body {
 	background-color: white;
 	height: 100%;
 	width: 100%;
+	background-image: url("./images/startBackground.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .button-container {
-	background-image: url("idea3.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
 	display: flex;
 	justify-content: space-around;
 	bottom: 0;
-	border: 1px solid black;
 	margin: 0;
 	padding: 0;
 	position: absolute;
@@ -143,7 +141,6 @@ body {
 .side-bar {
 	background-image: url("./images/stone.png");
 	background-repeat: no-repeat;
-	background-color: white;
 	background-size: contain;
 	background-position: center;
 	position: absolute;
@@ -153,7 +150,6 @@ body {
 }
 
 .big-character-container {
-	background-image: url("homepage.png");
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -161,8 +157,6 @@ body {
 	height: 100%;
 	width: 35%;
 	right: 0;
-	background-repeat: no-repeat;
-	background-size: cover;
 }
 
 .image-button {
@@ -179,8 +173,8 @@ body {
 
 .wiki-text {
 	word-spacing-spacing: 0.2em;
-	font-size: 2em;
-	color: blue;
+	font-size: 190%;
+	font-family: 'Caveat Brush', cursive;
 }
 
 .play-button {

@@ -72,8 +72,8 @@ CharacterSelect.prototype = {
   },
 
   displayBackground: function(image) {
-    var bigCharacterContainer = document.querySelector(".big-character-container");
-    bigCharacterContainer.style.backgroundImage = "url(" + image + ")";
+    var selectPageContainer = document.querySelector(".select-page-container");
+    selectPageContainer.style.backgroundImage = "url(" + image + ")";
   },
 
   displayWiki: function(extract) {
