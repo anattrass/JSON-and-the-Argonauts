@@ -199,10 +199,14 @@ body {
 	height: 60%;
 	margin: 12% 15% 20% 19%;
 	overflow: scroll;
+	word-spacing: 0.2em;
+	font-size: 200%;
+	font-family: 'Caveat Brush', cursive;
+	text-align: center;
 } 
 
 .wiki-text {
-	word-spacing-spacing: 0.2em;
+	word-spacing: 0.2em;
 	font-size: 190%;
 	font-family: 'Caveat Brush', cursive;
 }
