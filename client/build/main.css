@@ -41,6 +41,11 @@
 	background-size: auto 100%;
 }
 
+@font-face {
+  font-family: "rock";
+  src: url("JFRocSol.ttf");
+  }
+
 .fact-box {
 	position: absolute;
 	display: inline-block;
@@ -49,15 +54,13 @@
 	margin-left: 60%;
 	margin-top: 20%;
 	padding: 0px;
-	border: 1px solid #00688B;
-	color: #00688B;
 	font-size: 100%;
+	font-family: rock;
 	text-align: center;
 	border-radius: 30px;
 	padding: 80px;
-	background: -webkit-linear-gradient(bottom, #009ACD, #B2DFEE 450px);
-	background: -moz-linear-gradient(bottom, #009ACD, #B2DFEE 450px);
-	background: linear-gradient(bottom, #009ACD, #B2DFEE 450px);
+	background-image: url("./images/stone.png");
+	background-size: cover;
 }
 
 button {
