@@ -61,8 +61,19 @@
 	border-radius: 30px;
 	padding: 70px;
 	background-image: url("./images/stone.png");
-	background-size: cover;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+		justify-content: center;
 }
+
+.inner-fact-box{
+	/*width: 90%;*/
+	/*height: 90%;*/
+	/*position: absolute;*/
+}
+
 
 button {
 padding: 5px 15px 6px !important;
