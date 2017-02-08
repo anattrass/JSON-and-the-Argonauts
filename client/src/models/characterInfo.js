@@ -197,7 +197,7 @@ this.characters = {
     {
       question: "As a symbol of masculinity and warriorship, Heracles had a number of male lovers.",
       answer: true,
-      info: "Well done! This was the case in Acient Greece,  Plutarch, in his Eroticos, maintains that Heracles' male lovers were beyond counting"
+      info: "Well done! This was the case in ancient Greece,  Plutarch, in his Eroticos, maintains that Heracles' male lovers were beyond counting"
     },
     {
       question: "Heracles was a god during his life.",
