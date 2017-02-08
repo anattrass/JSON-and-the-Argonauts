@@ -118,29 +118,35 @@ body {
 
 .select-home-page-container {
 	background-image: url("homepage.png");
+	background-repeat: no-repeat;
+	background-size: cover;
 	z-index: 2;
-	position: center;
+	position: absolute;
 	height: 100%;
 	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .enter-button{
-	padding: 5px 15px 6px !important;
-/*	font-size: 61% !important;*/
+	padding: 10px 25px 16px !important;
+	font-size: 100% !important;
 	background-color: #000000 ;
-	display: inline-block;
-	margin: 10px 10px;
+	/*display: inline-block;*/
 	font-weight: bold;
 	text-shadow: 1px 1px ##404040 ;
-	/*color: #ffffff;*/
+	color: #ffffff;
 	border-radius: 100px;
 	-moz-border-radius: 100px;
 	-webkit-border-radius: 100px;
-	border: 1px solid ##404040 ;
+	border: 1px solid #404040 ;
 	cursor: pointer;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	position: absolute;
+	bottom: 0;
 }
 
 
@@ -224,15 +230,10 @@ body {
 	font-size: 250%;
 	font-family: 'Caveat Brush', cursive;
 	}
-<<<<<<< HEAD
-=======
-
 
 .play-button:hover {
 	cursor: pointer;
 }
-
->>>>>>> 88016d6e9f2dcb3f7c377db20615f6471f07f9de
 
 .big-boy {
 	margin: auto;
