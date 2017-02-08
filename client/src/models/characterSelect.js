@@ -35,6 +35,10 @@ CharacterSelect.prototype = {
     var wikiContainer = document.createElement("div");
     wikiContainer.className = "wiki-container";
 
+    var urlLinkContainer = document.createElement("div");
+    urlLinkContainer.className = "url-link-container";
+    sideBar.appendChild(urlLinkContainer);
+
     var playButton = document.createElement("div");
     playButton.className = "play-button";
     playButton.onclick = function() {
@@ -61,6 +65,7 @@ CharacterSelect.prototype = {
     this.mythFacts.getWiki(character.name, this.displayWiki);
     this.setPlayButton(character);
     this.displayBackground(character.background);
+    this.displayUrlLink(character);
   },
 
   displayBigBoy: function(image) {
@@ -84,6 +89,15 @@ CharacterSelect.prototype = {
     wikiText.innerText = extract;
     wikiContainer.appendChild(wikiText);
   },
+
+  displayUrlLink: function(character){
+    var urlLinkContainer = document.querySelector(".url-link-container");
+    urlLinkContainer.innerHTML = null;
+    var urlLink = document.createElement("a")
+    urlLink.href = character.url;
+    urlLink.innerText = "Find out more!"
+    urlLinkContainer.appendChild(urlLink);
+  }, 
 
   setPlayButton: function(character) {
     var playButton = document.querySelector(".play-button");
