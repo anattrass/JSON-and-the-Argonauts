@@ -123,7 +123,9 @@ body {
 	width: 100%;
 	display: flex;
 	align-items: flex-end;
-	justify-content: center;
+	justify-content: center; 
+
+
 }
 
 .enter-button{
