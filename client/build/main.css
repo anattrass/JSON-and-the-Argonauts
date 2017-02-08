@@ -224,12 +224,14 @@ body {
 
 .play-button {
 	position: absolute;
-	margin: 40% 10% 10% 72%;
+	/*margin: 40% 10% 10% 72%;*/
+	bottom: 0%;
+	right: 5%;
 	background-image: url("./images/pillar.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	height: 300px;
-	width: 290px;
+	height: 33%;
+	width: 22%;
 	font-size: 250%;
 	text-align: center;
 	font-size: 250%;
