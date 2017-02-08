@@ -34,6 +34,7 @@ CharacterSelect.prototype = {
     sideBar.className = "side-bar";
     var wikiContainer = document.createElement("div");
     wikiContainer.className = "wiki-container";
+
     var playButton = document.createElement("div");
     playButton.className = "play-button";
     playButton.onclick = function() {
@@ -50,7 +51,7 @@ CharacterSelect.prototype = {
     selectPageContainer.appendChild(bigCharacterContainer);
     selectPageContainer.appendChild(sideBar);
     sideBar.appendChild(wikiContainer);
-    sideBar.appendChild(playButton);
+    selectPageContainer.appendChild(playButton);
     var container = document.querySelector("#container");
     container.appendChild(selectPageContainer);
   },
