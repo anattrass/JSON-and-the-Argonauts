@@ -61,7 +61,7 @@
 	border-radius: 30px;
 	padding: 70px;
 	background-image: url("./images/stone.png");
-	background-size: 100%;
+	background-size: contain;
 	background-repeat: no-repeat;
 	display: flex;
 	align-items: center;
@@ -125,7 +125,7 @@ body {
 	height: 100%;
 	width: 100%;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: center;
 }
 
@@ -146,7 +146,6 @@ body {
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 	position: absolute;
-	bottom: 0;
 }
 
 
@@ -182,7 +181,6 @@ body {
 	position: absolute;
 	height: 75%;
 	width: 65%;
-	
 }
 
 .big-character-container {
@@ -200,15 +198,21 @@ body {
 	width: auto;
 }
 
+.url-link-container {
+	width: 25%;
+	margin-left: 40%;
+	margin-top: 5%;
+	font-family: 'Caveat Brush', cursive;
+	font-size: 200%
+}
+
 .wiki-container {
 	width: 60%;
-	height: 60%;
-	margin: 12% 15% 20% 19%;
+	height: 70%;
+	margin: 5% 15% 20% 19%;
 	overflow: scroll;
 	word-spacing: 0.2em;
 	font-size: 200%;
-	background-image: url("./images/stone.png");
-	
 	font-family: 'Caveat Brush', cursive;
 	text-align: center;
 } 
@@ -225,8 +229,12 @@ body {
 	background-image: url("./images/pillar.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	height: 290px;
-	width: 280px;
+	height: 300px;
+	width: 290px;
+	font-size: 250%;
+	text-align: center;
+	font-size: 250%;
+	font-family: 'Caveat Brush', cursive;
 	}
 
 .play-button:hover {
@@ -263,8 +271,4 @@ body {
 	background-image: url("./images/restartButton.gif");
 	cursor: pointer;
 }
-
-
-
-
 
