@@ -85,6 +85,7 @@ Logic.prototype = {
   buildPlayer: function(){
     var player = document.querySelector("#player");
     player.innerHTML = null;
+    player.style.bottom = "25px";
     var playerImage = document.createElement("img");
     playerImage.src = this.character.image;
     playerImage.style.backgroundRepeat = "no-repeat"
@@ -208,6 +209,8 @@ Logic.prototype = {
     div.innerText = "You have failed the Gods and now you must suffer in Hades' frosty bosom!";
     button.innerText = "Back to the Underworld";
     button.className = "answerButton";
+    button.style.visibility =  "hidden";
+    button.className = "lose-button";
     button.onclick = function(){
       this.view.scrollLeft = 0;
       this.questionCounter = 0;
@@ -215,6 +218,12 @@ Logic.prototype = {
     }.bind(this);
     this.container.appendChild(div);
     div.appendChild(button);
+    this.viewLogic.playerDeath(this.showFailButton);
+  },
+
+  showFailButton(){
+    var button = document.querySelector(".lose-button");
+    button.style.visibility = "visible";
   }
 }
 
