@@ -42,8 +42,12 @@ CharacterSelect.prototype = {
 
     var playButton = document.createElement("div");
     playButton.className = "play-button";
-    playButton.innerText = "\n \n \n Play"
+    playButton.innerHTML = null;
+    var playText = document.createElement("p");
+    playText.className = "play-button-text";
+    playText.innerText = "Play"
     playButton.style.display = "none";
+    playButton.appendChild(playText);
     playButton.onclick = function() {
       alert("Did you pick a character?");
     };
@@ -98,9 +102,18 @@ CharacterSelect.prototype = {
   displayUrlLink: function(character){
     var urlLinkContainer = document.querySelector(".url-link-container");
     urlLinkContainer.innerHTML = null;
+<<<<<<< HEAD
     var urlLink = document.createElement("a");
     urlLink.href = character.url;
     urlLink.innerText = "Find out more!";
+=======
+    var urlLink = document.createElement("a")
+    urlLink.className = "link-button"
+    urlLink.href = character.url;
+    var image = document.createElement('img')
+    image.src = "./images/learn-more-button-3.png"
+    urlLink.appendChild(image);
+>>>>>>> develop
     urlLinkContainer.appendChild(urlLink);
   }, 
 

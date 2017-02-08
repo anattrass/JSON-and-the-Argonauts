@@ -29,7 +29,6 @@
 /*the content is inside the view*/
 #content {
 	display: none;
-	/*background-image: url("walkway.png");*/
 	background-repeat: repeat-x;
 	position: relative;
 	min-width: 5000px;
@@ -40,11 +39,6 @@
 	height: 100%;
 	background-size: auto 100%;
 }
-
-/*@font-face {
-  font-family: "rock";
-  src: url("JFRocSol.ttf");
-  }*/
 
 .fact-box {
 	position: absolute;
@@ -65,7 +59,12 @@
 	background-repeat: no-repeat;
 	display: flex;
 	align-items: center;
-		justify-content: center;
+	justify-content: center;
+}
+
+.question-count-display {
+	position: absolute;
+	top: 0;
 }
 
 .inner-fact-box{
@@ -73,7 +72,6 @@
 	/*height: 90%;*/
 	/*position: absolute;*/
 }
-
 
 button {
 padding: 5px 15px 6px !important;
@@ -103,7 +101,6 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 	width: 250px;
 	position: absolute;
 }
-
 
 img {
 	max-width:100%;
@@ -202,14 +199,13 @@ body {
 	width: 25%;
 	margin-left: 40%;
 	margin-top: 5%;
-	font-family: 'Caveat Brush', cursive;
-	font-size: 200%
 }
 
+
 .wiki-container {
-	width: 60%;
-	height: 70%;
-	margin: 5% 15% 20% 19%;
+	width: 57%;
+	height: 67%;
+	margin: 4% 15% 20% 22%;
 	overflow: scroll;
 	word-spacing: 0.2em;
 	font-size: 200%;
@@ -225,20 +221,28 @@ body {
 
 .play-button {
 	position: absolute;
-	margin: 40% 10% 10% 72%;
+	bottom: 0%;
+	right: 8%;
 	background-image: url("./images/pillar.png");
 	background-repeat: no-repeat;
-	background-size: contain;
-	height: 300px;
-	width: 290px;
+	background-size: 100%;
+	height: 30%;
+	width: 18%;
 	font-size: 250%;
 	text-align: center;
 	font-size: 250%;
 	font-family: 'Caveat Brush', cursive;
-	}
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
 
 .play-button:hover {
 	cursor: pointer;
+}
+
+.play-button-text {
+	
 }
 
 .big-boy {
@@ -271,8 +275,4 @@ body {
 	background-image: url("./images/restartButton.gif");
 	cursor: pointer;
 }
-
-
-
-
 

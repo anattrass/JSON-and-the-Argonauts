@@ -212,7 +212,7 @@ this.characters = {
 
     apollo : {
       name: "Apollo",
-      image: "./images/hermes.png",
+      image: "./images/apollo.png",
       background: "./images/background4.jpg",
       walkway: "./walkway.png",
       url: "http://www.ancient.eu/apollo/",
