@@ -193,7 +193,7 @@ Logic.prototype = {
     var div = document.createElement("div");
     div.className = "fact-box";
     var button = document.createElement("button");
-    div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods Olympian";
+    div.innerText = "You have completed your 12 labours and your climb to Olympus! \n You are welcome at the table of the gods, Olympian";
     button.innerText = "Start new game!";
     button.onclick = this.returnToHome.bind(this);
     div.appendChild(button);
@@ -207,7 +207,7 @@ Logic.prototype = {
     div.className = "fact-box";
     var button = document.createElement("button");
     div.innerText = "You have failed the Gods and now you must suffer in Hades' frosty bosom!";
-    button.innerText = "Back to the Underworld";
+    button.innerText = "Restart your quest";
     button.className = "answerButton";
     button.style.visibility =  "hidden";
     button.className = "lose-button";
