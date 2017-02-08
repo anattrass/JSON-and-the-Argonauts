@@ -61,7 +61,7 @@
 	border-radius: 30px;
 	padding: 70px;
 	background-image: url("./images/stone.png");
-	background-size: 100%;
+	background-size: contain;
 	background-repeat: no-repeat;
 	display: flex;
 	align-items: center;
