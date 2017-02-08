@@ -98,9 +98,9 @@ CharacterSelect.prototype = {
   displayUrlLink: function(character){
     var urlLinkContainer = document.querySelector(".url-link-container");
     urlLinkContainer.innerHTML = null;
-    var urlLink = document.createElement("a")
+    var urlLink = document.createElement("a");
     urlLink.href = character.url;
-    urlLink.innerText = "Find out more!"
+    urlLink.innerText = "Find out more!";
     urlLinkContainer.appendChild(urlLink);
   }, 
 
