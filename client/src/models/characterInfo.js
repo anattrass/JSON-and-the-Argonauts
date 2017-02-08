@@ -61,7 +61,7 @@ this.characters = {
     {
       question: "Another task was to defeat the Cyclopes.",
       answer: false,
-      info: "You're correct, not one of his three tasks"
+      info: "You're correct, it was not one of his three tasks"
     },
     {
       question: "The magical warriors called Spartoi appeared when Jason sowed a field with a dragon's teeth.",
@@ -78,7 +78,7 @@ this.characters = {
     url: "http://www.ancient.eu/athena/",
 
     questions: [{
-      question: "Athena was born from zeus.",
+      question: "Athena was born from Zeus.",
       answer: true,
       info: "Well done! She was born fully armed from his forehead"
     },
@@ -88,9 +88,9 @@ this.characters = {
       info: "Yes! She is the goddess of wisdom, craft and war"
     },
     {
-      question: " Athena wields the aegis and thunderbolt for zeus.",
+      question: " Athena wields the aegis and thunderbolt for Zeus.",
       answer: true,
-      info: "That's Right! She was very powerful!"
+      info: "That's right! She was very powerful!"
     },
     {
       question: "Her mother was Aphrodite.",
@@ -128,9 +128,9 @@ this.characters = {
       info: "Nearly there! Athena could shift some serious shapes!"
     },
     {
-      question: "Athena was born from zeus on the island of Crete.",
+      question: "Athena was born from Zeus on the island of Crete.",
       answer: false,
-      info: "One more to go! Zeus was walking along the shore of Lake Tritonis when Athena was born, from his forhead, fully grown and wearing armor"
+      info: "One more to go! Zeus was walking along the shore of Lake Tritonis when Athena was born, from his forehead, fully grown and wearing armour"
     },
     {
       question: "Odysseus was Athena’s uncle.",
@@ -157,17 +157,17 @@ this.characters = {
     {
       question: "Heracles was the last mortal son of Zeus.",
       answer: true,
-      info: "Correct! Zeus had many children both divine and mortal but yes Heracles was his last mortal son"
+      info: "Correct! Zeus had many children both divine and mortal, but yes Heracles was his last mortal son"
     },
     {
-      question: " Heracles' mother was the Godess Hera.",
+      question: " Heracles' mother was the Goddess Hera.",
       answer: false,
-      info: "That's Right! Heracles was the son of the affair Zeus had with the mortal woman Alcmene. Zeus made love to her after disguising himself as her husband"
+      info: "That's right! Heracles was the son of the affair Zeus had with the mortal woman Alcmene. Zeus made love to her after disguising himself as her husband"
     },
     {
       question: "Athena was the person who issued Heracles with the 12 Labors.",
       answer: false,
-      info: "Well done! Heracles was required to carry out 12 labors set by his archenemy, Eurystheus"
+      info: "Well done! Heracles was required to carry out 12 labors set by his arch enemy, Eurystheus"
     },
     {
       question: "Slaying the Lernaean Hydra was Heracles final Labor.",
@@ -207,7 +207,7 @@ this.characters = {
     {
       question: "Heracles died from poison.",
       answer: true,
-      info: "Congratulations! he was given a shirt covered in the Hydra's blood from Heracles' own arrows, and this poisons him, tearing his skin and exposing his bones"
+      info: "Congratulations! He was given a shirt covered in the Hydra's blood from Heracles' own arrows, and this poisons him, tearing his skin and exposing his bones"
     }]},
 
     apollo : {
@@ -236,7 +236,7 @@ this.characters = {
       {
         question: "Artemis is the twin sister of Apollo",
         answer: true,
-      info: "Yes, the twin sister of Apollo and the Goddess of the Hunt, Forests and Hills, the Moon, Archery"
+      info: "Yes, the twin sister of Apollo and the Goddess of the Hunt, Forests and Hills, the Moon and Archery"
       },
       {
         question: "The lyre Apollo carries was created and given to him by Hermes",
@@ -261,12 +261,12 @@ this.characters = {
       {
         question: "Apollo had three sons to Cyrene",
         answer: false,
-      info: "Nice one! By Cyrene, Apollo had one son named Aristaeus, who became the patron god of cattle, fruit trees, hunting, husbandry and bee-keeping"
+      info: "Nice one! By Cyrene, Apollo only had one son named Aristaeus, who became the patron god of cattle, fruit trees, hunting, husbandry and bee-keeping"
       },
       {
         question:"Apollo won the musical challenge of Pan",
         answer: true,
-      info: "True that! He whooped Pan and his stupid pipes"
+      info: "True that! He whooped Pan and his silly pipes"
       },
       {
         question: "Hera sent the Chimera to hunt Apollo",

@@ -34,7 +34,7 @@ CharacterSelect.prototype = {
     sideBar.className = "side-bar";
     var wikiContainer = document.createElement("div");
     wikiContainer.className = "wiki-container";
-    wikiContainer.innerText = "Welcome to Myth Behavin'! \n \n The interactive quiz game that helps you learn about Greek Mythology! \n Select one of the four characters below to begin the 12 question odyssey to Mount Olympus. \n Let the winds of Anemoi blow in your favor!"
+    wikiContainer.innerText = "Welcome to Myth Behavin'! \n \n The interactive quiz game that helps you learn about Greek Mythology! \n Select one of the four characters below to begin the 12 question odyssey to Mount Olympus. \n Let the winds of Anemoi blow in your favour!"
 
     var urlLinkContainer = document.createElement("div");
     urlLinkContainer.className = "url-link-container";
