@@ -179,21 +179,13 @@ body {
 
 .play-button {
 	position: absolute;
-	margin: 45% 10% 10% 75%;
-	background-color: #C63702;
-	height: 10%;
-	width: 15%;
-	
+	margin: 40% 10% 10% 72%;
+	background-image: url("./images/pillar.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 290px;
+	width: 280px;
 	}
-<<<<<<< HEAD
-
-=======
-}
-
-.play-button:hover {
-	cursor: pointer;
-}
->>>>>>> 2bf8fdfeca424268086fe827c84149adb4d69b05
 
 .big-boy {
 	margin: auto;

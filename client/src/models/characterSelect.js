@@ -37,6 +37,7 @@ CharacterSelect.prototype = {
 
     var playButton = document.createElement("div");
     playButton.className = "play-button";
+    playButton.style.display = "none";
     playButton.onclick = function() {
       alert("Did you pick a character?");
     };
@@ -64,6 +65,8 @@ CharacterSelect.prototype = {
   },
 
   displayBigBoy: function(image) {
+    var playButton = document.querySelector(".play-button");
+    playButton.style.display = "block";
     var bigBoy = document.createElement("img");
     bigBoy.src = image;
     var bigCharacterContainer = document.querySelector(".big-character-container");
@@ -87,7 +90,6 @@ CharacterSelect.prototype = {
 
   setPlayButton: function(character) {
     var playButton = document.querySelector(".play-button");
-    playButton.innerText = "play";
     playButton.onclick = function(){
       var selectPageContainer = document.querySelector(".select-page-container");
       selectPageContainer.parentNode.removeChild(selectPageContainer);
