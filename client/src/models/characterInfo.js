@@ -117,8 +117,8 @@ this.characters = {
     },
     {
       question: "Athena is one of the four virgin goddess.",
-      answer: true,
-      info: "Excellent! Athena's children are literally born from her thoughts"
+      answer: false,
+      info: "Excellent! She is one of three, Athena's children are literally born from her thoughts"
     },
     {
       question: "Athena is a shapeshifter.",

@@ -38,6 +38,7 @@ CharacterSelect.prototype = {
 
     var playButton = document.createElement("div");
     playButton.className = "play-button";
+    playButton.innerText = "\n \n \n Play"
     playButton.style.display = "none";
     playButton.onclick = function() {
       alert("Did you pick a character?");

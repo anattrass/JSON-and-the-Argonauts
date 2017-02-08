@@ -217,8 +217,12 @@ body {
 	background-image: url("./images/pillar.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	height: 290px;
-	width: 280px;
+	height: 300px;
+	width: 290px;
+	font-size: 250%;
+	text-align: center;
+	font-size: 250%;
+	font-family: 'Caveat Brush', cursive;
 	}
 <<<<<<< HEAD
 =======
