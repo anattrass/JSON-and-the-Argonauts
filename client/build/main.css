@@ -181,7 +181,6 @@ body {
 	position: absolute;
 	height: 75%;
 	width: 65%;
-	
 }
 
 .big-character-container {
@@ -199,10 +198,18 @@ body {
 	width: auto;
 }
 
+.url-link-container {
+	width: 25%;
+	margin-left: 40%;
+	margin-top: 5%;
+	font-family: 'Caveat Brush', cursive;
+	font-size: 200%
+}
+
 .wiki-container {
 	width: 60%;
-	height: 60%;
-	margin: 12% 15% 20% 19%;
+	height: 70%;
+	margin: 5% 15% 20% 19%;
 	overflow: scroll;
 	word-spacing: 0.2em;
 	font-size: 200%;
