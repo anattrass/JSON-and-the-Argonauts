@@ -99,8 +99,11 @@ CharacterSelect.prototype = {
     var urlLinkContainer = document.querySelector(".url-link-container");
     urlLinkContainer.innerHTML = null;
     var urlLink = document.createElement("a")
+    urlLink.className = "link-button"
     urlLink.href = character.url;
-    urlLink.innerText = "Find out more!"
+    var image = document.createElement('img')
+    image.src = "./images/learn-more-button-3.png"
+    urlLink.appendChild(image);
     urlLinkContainer.appendChild(urlLink);
   }, 
 
