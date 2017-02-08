@@ -41,41 +41,42 @@
 	background-size: auto 100%;
 }
 
-@font-face {
+/*@font-face {
   font-family: "rock";
   src: url("JFRocSol.ttf");
-  }
+  }*/
 
 .fact-box {
 	position: absolute;
+	line-height: 100%;
 	display: inline-block;
-	width: 20%;
-	height: 20%;
+	width: 30%;
+	height: 30%;
 	margin-left: 60%;
 	margin-top: 20%;
 	padding: 0px;
-	font-size: 100%;
-	font-family: rock;
+	font-size: 180%;
+	font-family: 'Caveat Brush', cursive;
 	text-align: center;
 	border-radius: 30px;
-	padding: 80px;
+	padding: 70px;
 	background-image: url("./images/stone.png");
 	background-size: cover;
 }
 
 button {
-padding: 10px 20px 11px !important;
-font-size: 81% !important;
-background-color: #0D4F8B;
+padding: 5px 15px 6px !important;
+font-size: 61% !important;
+background-color: #202020 ;
 display: inline-block;
 margin: 10px 10px;
 font-weight: bold;
-text-shadow: 1px 1px #0D4F8B;
+text-shadow: 1px 1px ##404040 ;
 color: #ffffff;
 border-radius: 100px;
 -moz-border-radius: 100px;
 -webkit-border-radius: 100px;
-border: 1px solid #0D4F8B;
+border: 1px solid ##404040 ;
 cursor: pointer;
 box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
