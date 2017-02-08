@@ -36,6 +36,10 @@ CharacterSelect.prototype = {
     wikiContainer.className = "wiki-container";
     wikiContainer.innerText = "Welcome to Myth Behavin'! \n The interactive quiz game that helps you learn about Greek Mythology! \n Select one of the four characters below to being the 12 question odyssey to Mount Olympus. \n Let the winds of Anemoi blow in your favor!"
 
+    var urlLinkContainer = document.createElement("div");
+    urlLinkContainer.className = "url-link-container";
+    sideBar.appendChild(urlLinkContainer);
+
     var playButton = document.createElement("div");
     playButton.className = "play-button";
     playButton.innerText = "\n \n \n Play"
@@ -64,6 +68,7 @@ CharacterSelect.prototype = {
     this.mythFacts.getWiki(character.name, this.displayWiki);
     this.setPlayButton(character);
     this.displayBackground(character.background);
+    this.displayUrlLink(character);
   },
 
   displayBigBoy: function(image) {
@@ -89,6 +94,15 @@ CharacterSelect.prototype = {
     wikiText.innerText = extract;
     wikiContainer.appendChild(wikiText);
   },
+
+  displayUrlLink: function(character){
+    var urlLinkContainer = document.querySelector(".url-link-container");
+    urlLinkContainer.innerHTML = null;
+    var urlLink = document.createElement("a")
+    urlLink.href = character.url;
+    urlLink.innerText = "Find out more!"
+    urlLinkContainer.appendChild(urlLink);
+  }, 
 
   setPlayButton: function(character) {
     var playButton = document.querySelector(".play-button");
