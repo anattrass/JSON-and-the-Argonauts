@@ -131,7 +131,7 @@ CharacterSelect.prototype = {
     var descend = function(){
       levelNow -= 1;
       bigBoy.style.bottom = (levelNow + "%");
-      if(parseInt(bigBoy.style.bottom.replace("%", "")) <= 1){
+      if(parseInt(bigBoy.style.bottom.replace("%", "")) <= -2){
         clearInterval(down);
         right = setInterval(trudgeOff.bind(this), 20);
       }
@@ -147,6 +147,8 @@ CharacterSelect.prototype = {
     }    
     var down = setInterval(descend.bind(this), 20);
   },
+
+  // var bob = function()
 
   newGame: function(character){
     var selectPageContainer = document.querySelector(".select-page-container");
