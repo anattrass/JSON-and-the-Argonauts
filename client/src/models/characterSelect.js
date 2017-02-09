@@ -115,7 +115,17 @@ CharacterSelect.prototype = {
   setPlayButton: function(character) {
     var playButton = document.querySelector(".play-button");
     playButton.onclick = function(){
-      var selectPageContainer = document.querySelector(".select-page-container");
+      this.walkOff(character);
+    }.bind(this);
+  },
+
+  walkOff: function(character){
+    // var startGame = setTimeOut
+    this.newGame(character);
+  },
+
+  newGame: function(character){
+    var selectPageContainer = document.querySelector(".select-page-container");
       selectPageContainer.parentNode.removeChild(selectPageContainer);
       var view = document.querySelector("#view");
       var content = document.querySelector("#content");
@@ -124,7 +134,6 @@ CharacterSelect.prototype = {
       content.style.display = "block";
       player.style.display = "block";
       this.logic.quizCreator(character.name);
-    }.bind(this);
   }
 }
 
