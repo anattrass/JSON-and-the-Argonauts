@@ -85,7 +85,7 @@ Logic.prototype = {
   buildPlayer: function(){
     var player = document.querySelector("#player");
     player.innerHTML = null;
-    player.style.bottom = "25px";
+    player.style.bottom = "7%";
     var playerImage = document.createElement("img");
     playerImage.src = this.character.image;
     playerImage.style.backgroundRepeat = "no-repeat"

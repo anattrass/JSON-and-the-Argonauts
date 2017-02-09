@@ -122,7 +122,30 @@ CharacterSelect.prototype = {
 
   walkOff: function(character){
     // var startGame = setTimeOut
-    this.newGame(character);
+    var bigBoy = document.querySelector(".big-boy")
+    bigBoy.style.bottom = "30%";
+    var levelNow = 30;
+    bigBoy.style.left = "20%";
+    var leftNow = 20;
+    var right = null;
+    var descend = function(){
+      levelNow -= 1;
+      bigBoy.style.bottom = (levelNow + "%");
+      if(parseInt(bigBoy.style.bottom.replace("%", "")) <= 1){
+        clearInterval(down);
+        right = setInterval(trudgeOff.bind(this), 20);
+      }
+    }
+
+    var trudgeOff = function(){
+      leftNow += 1;
+      bigBoy.style.left = (leftNow + "%");
+      if(parseInt(bigBoy.style.left.replace("%", "")) >= 100){
+        clearInterval(right);
+        this.newGame(character);
+      }
+    }    
+    var down = setInterval(descend.bind(this), 20);
   },
 
   newGame: function(character){
