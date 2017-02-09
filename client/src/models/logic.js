@@ -104,8 +104,13 @@ Logic.prototype = {
     this.character = this.characterInfo.retrieveCharacter(characterName);
     this.buildQuizDiv();
     this.buildRestartButton();
-    this.buildPlayer();
     this.buildWorld();
+    this.buildPlayer();
+    if(this.questionCounter === 0){
+      var player = document.querySelector("#player");
+    player.style.left = "-20%";
+      this.viewLogic.playerWalkOn();
+    }
   },
 
   createInfoDiv: function() {
