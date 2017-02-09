@@ -80,6 +80,7 @@ CharacterSelect.prototype = {
     playButton.style.display = "block";
     var bigBoy = document.createElement("img");
     bigBoy.src = image;
+    bigBoy.className = "big-boy";
     var bigCharacterContainer = document.querySelector(".big-character-container");
     bigCharacterContainer.innerHTML = null;
     bigCharacterContainer.appendChild(bigBoy);
