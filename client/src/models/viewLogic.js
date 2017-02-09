@@ -1,65 +1,79 @@
 var ViewLogic = function(){
-	
+  
 }
 
 ViewLogic.prototype = {
-	move: function(destination, event){
-		var scroller = function(destination){
+  move: function(destination, event){
+    var scroller = function(destination){
 
-			var view = document.querySelector('#view'); 
-			console.log(view.scrollLeft);
+      var view = document.querySelector('#view'); 
+      console.log(view.scrollLeft);
 
-			if (view.scrollLeft <= destination){
-				var y = view.scrollLeft;
-				view.scrollLeft = y+5;
+      if (view.scrollLeft <= destination){
+        var y = view.scrollLeft;
+        view.scrollLeft = y+5;
 
-				if(view.scrollLeft >= destination){
-					event();
-					clearInterval(smoothScroll);
-				} 
-			} else if (view.scrollLeft >= destination){
-				var y = view.scrollLeft;
-				view.scrollLeft = y-5;
+        if(view.scrollLeft >= destination){
+          event();
+          clearInterval(smoothScroll);
+        } 
+      } else if (view.scrollLeft >= destination){
+        var y = view.scrollLeft;
+        view.scrollLeft = y-5;
 
-				if(view.scrollLeft <= destination){
-					event();
-					clearInterval(smoothScroll);
-				}
-			}
-		}
+        if(view.scrollLeft <= destination){
+          event();
+          clearInterval(smoothScroll);
+        }
+      }
+    }
 
-		var smoothScroll = setInterval(function(){scroller(destination)}, 20);
-		console.log(view.scrollLeft);
-	},
-	scrollMaster: function(destination, event){
-		this.move(destination, event);
-		console.log("back");
-	},
+    var smoothScroll = setInterval(function(){scroller(destination)}, 20);
+    console.log(view.scrollLeft);
+  },
+  scrollMaster: function(destination, event){
+    this.move(destination, event);
+    console.log("back");
+  },
 
-	playerDeath: function(callBack){
-		var player = document.querySelector("#player");
-		console.log('dying');
-		console.log(player);
-		var currentStyle = window.getComputedStyle(player);
-		var startingBottomMargin = currentStyle.marginBottom;
-		var height = (parseInt(currentStyle.height.replace("px", "")));
-		var levelNow = (parseInt(currentStyle.bottom.replace("px", "")));
+  playerDeath: function(callBack){
+    var player = document.querySelector("#player");
+    console.log('dying');
+    console.log(player);
+    var currentStyle = window.getComputedStyle(player);
+    var startingBottomMargin = currentStyle.marginBottom;
+    var height = (parseInt(currentStyle.height.replace("px", "")));
+    var levelNow = (parseInt(currentStyle.bottom.replace("px", "")));
 
-		console.log("height: " + height);
-		console.log("nadir: " + nadir);
-		console.log("levelNow: " + levelNow);
-		var nadir = (-2*height);
+    console.log("height: " + height);
+    console.log("nadir: " + nadir);
+    console.log("levelNow: " + levelNow);
+    var nadir = (-2*height);
 
-		var descend = function(){
-			levelNow -= 5;
-			player.style.bottom = (levelNow + "px");
-			if(parseInt(player.style.bottom.replace("px", "")) <= nadir){
-				clearInterval(startDeath);
-				callBack();
-			}
-		}
-		var startDeath = setInterval(descend, 20);
-	}
+    var descend = function(){
+      levelNow -= 5;
+      player.style.bottom = (levelNow + "px");
+      if(parseInt(player.style.bottom.replace("px", "")) <= nadir){
+        clearInterval(startDeath);
+        callBack();
+      }
+    }
+    var startDeath = setInterval(descend, 20);
+  },
+
+  playerWalkOn: function(){
+    var player = document.querySelector("#player");
+    player.style.left = "-20%";
+    var leftNow = -20;
+    var trudgeOn = function(){
+      leftNow += 0.3;
+      player.style.left = (leftNow + "%");
+      if(parseInt(player.style.left.replace("%", "")) >= 10){
+        clearInterval(right);
+      }
+    }
+    var right = setInterval(trudgeOn.bind(this), 20);
+  }
 }
 
 module.exports = ViewLogic;

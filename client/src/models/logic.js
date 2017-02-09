@@ -85,7 +85,7 @@ Logic.prototype = {
   buildPlayer: function(){
     var player = document.querySelector("#player");
     player.innerHTML = null;
-    player.style.bottom = "25px";
+    player.style.bottom = "7%";
     var playerImage = document.createElement("img");
     playerImage.src = this.character.image;
     playerImage.style.backgroundRepeat = "no-repeat"
@@ -104,8 +104,13 @@ Logic.prototype = {
     this.character = this.characterInfo.retrieveCharacter(characterName);
     this.buildQuizDiv();
     this.buildRestartButton();
-    this.buildPlayer();
     this.buildWorld();
+    this.buildPlayer();
+    if(this.questionCounter === 0){
+      var player = document.querySelector("#player");
+    player.style.left = "-20%";
+      this.viewLogic.playerWalkOn();
+    }
   },
 
   createInfoDiv: function() {
